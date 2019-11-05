@@ -1783,7 +1783,13 @@ stackswitcher button.circular, stackswitcher button.text-button.circular { min-w
 
 popover.emoji-picker { padding-left: 0; padding-right: 0; }
 
+popover.emoji-picker entry.search { margin: 3px 5px 5px 5px; }
+
 button.emoji-section { border-color: transparent; border-width: 3px; border-style: none none solid; border-radius: 0; margin: 2px 4px 2px 4px; padding: 3px 0 0; min-width: 32px; min-height: 28px; background: none; box-shadow: none; text-shadow: none; outline-offset: -5px; }
+
+button.emoji-section:first-child { margin-left: 7px; }
+
+button.emoji-section:last-child { margin-right: 7px; }
 
 button.emoji-section:backdrop:not(:checked) { border-color: transparent; }
 
