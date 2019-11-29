@@ -184,13 +184,8 @@ label {
 
   &.separator {
     @extend .dim-label;
-
-    color: $fg_color;
-
-    &:backdrop { color: $backdrop_fg_color; }
   }
 
-  row:selected &,
   &:selected { @extend %nobg_selected_items; }
 
   selection {
@@ -201,14 +196,18 @@ label {
   &:disabled {
     color: $insensitive_fg_color;
 
-    selection { @extend %selected_items_disabled; }
+    button & { color: inherit; }
 
-    &:backdrop { color: $backdrop_insensitive_color; }
+    &:backdrop {
+      color: $backdrop_insensitive_color;
+
+      button & { color: inherit; }
+    }
+
+    selection { @extend %selected_items_disabled; }
   }
 
   &:backdrop {
-    color: $backdrop_fg_color;
-
     selection { @extend %selected_items_backdrop; }
   }
 }
@@ -3613,6 +3612,7 @@ list {
   border-color: $borders_color;
 
   &:backdrop {
+    color: $backdrop_text_color;
     background-color: $backdrop_base_color;
     border-color: $backdrop_borders_color;
   }
