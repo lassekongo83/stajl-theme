@@ -201,7 +201,7 @@ label {
   &:disabled {
     color: $insensitive_fg_color;
 
-    selection { @extend %selected_items:disabled; }
+    selection { @extend %selected_items_disabled; }
 
     &:backdrop { color: $backdrop_insensitive_color; }
   }
@@ -209,7 +209,7 @@ label {
   &:backdrop {
     color: $backdrop_fg_color;
 
-    selection { @extend %selected_items:backdrop; }
+    selection { @extend %selected_items_backdrop; }
   }
 }
 
@@ -531,6 +531,7 @@ button {
 
     @include button(normal);
 
+    @at-root %button_basic_flat,
     &.flat {
       @include button(undecorated);
       // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
@@ -607,6 +608,7 @@ button {
       }
     }
 
+    @at-root %button_basic_drop_active,
     &:drop(active) {
       color: $drop_target_color;
       border-color: $drop_target_color;
@@ -617,16 +619,19 @@ button {
   @at-root %button_selected, & {
     row:selected & {
       @if $variant == 'light' { border-color: $selected_borders_color; }
+    }
 
-      &.flat:not(:active):not(:checked):not(:hover):not(disabled) {
-        color: $selected_fg_color;
-        border-color: transparent;
+    @at-root %button_selected_flat, &.flat {
+      row:selected & {
+        &:not(:active):not(:checked):not(:hover):not(disabled) {
+          color: $selected_fg_color;
+          border-color: transparent;
 
-        &:backdrop { color: if($variant=='light', $backdrop_base_color, $backdrop_fg_color); }
+          &:backdrop { color: if($variant=='light', $backdrop_base_color, $backdrop_fg_color); }
+        }
       }
     }
   }
-
 
   // big standalone buttons like in Documents pager
   &.osd {
@@ -948,16 +953,21 @@ toolbar.inline-toolbar toolbutton,
 toolbar.inline-toolbar toolbutton:backdrop {
   > button.flat { @extend %linked_middle; }
 
-  &:first-child > button.flat { @extend %linked:first-child; }
+  &:first-child > button.flat { @extend %linked_left; }
 
-  &:last-child > button.flat { @extend %linked:last-child; }
+  &:last-child > button.flat { @extend %linked_right; }
 
-  &:only-child > button.flat { @extend %linked:only-child; }
+  &:only-child > button.flat { @extend %linked_only_child; }
 }
 
 %linked_middle {
   border-radius: 0;
   border-right-style: none;
+}
+
+%linked_only_child {
+    border-radius: $button_radius;
+    border-style: solid;
 }
 
 %linked_left {
@@ -983,10 +993,7 @@ toolbar.inline-toolbar toolbutton:backdrop {
   &:first-child { @extend %linked_left; }
   &:last-child { @extend %linked_right; }
 
-  &:only-child {
-    border-radius: $button_radius;
-    border-style: solid;
-  }
+  &:only-child { @extend %linked_only_child; }
 }
 
 // Other widgets use widget child order, so 1st/last child are at text start/end
@@ -1003,10 +1010,7 @@ toolbar.inline-toolbar toolbutton:backdrop {
     &:last-child { @extend %linked_left; }
   }
 
-  &:only-child {
-    border-radius: $button_radius;
-    border-style: solid;
-  }
+  &:only-child { @extend %linked_only_child; }
 }
 
 %linked_vertical_middle {
@@ -1014,24 +1018,30 @@ toolbar.inline-toolbar toolbutton:backdrop {
   border-radius: 0;
 }
 
-%linked_vertical{
+%linked_vertical_top {
+  border-top-left-radius: $button_radius;
+  border-top-right-radius: $button_radius;
+}
+
+%linked_vertical_bottom {
+  border-bottom-left-radius: $button_radius;
+  border-bottom-right-radius: $button_radius;
+  border-style: solid;
+}
+
+%linked_vertical_only_child {
+  border-radius: $button_radius;
+  border-style: solid;
+}
+
+%linked_vertical {
   @extend %linked_vertical_middle;
 
-  &:first-child {
-    border-top-left-radius: $button_radius;
-    border-top-right-radius: $button_radius;
-  }
+  &:first-child { @extend %linked_vertical_top; }
 
-  &:last-child {
-    border-bottom-left-radius: $button_radius;
-    border-bottom-right-radius: $button_radius;
-    border-style: solid;
-  }
+  &:last-child { @extend %linked_vertical_bottom; }
 
-  &:only-child {
-    border-radius: $button_radius;
-    border-style: solid;
-  }
+  &:only-child { @extend %linked_vertical_only_child; }
 }
 
 %undecorated_button {
@@ -1144,7 +1154,7 @@ button:link,
 button:visited {
   @extend %undecorated_button;
 
-  @extend *:link;
+  @extend %link;
 
   text-shadow: none;
 
@@ -1373,15 +1383,15 @@ combobox {
 
   &.linked {
     button:nth-child(2) {
-      &:dir(ltr) { @extend %linked:last-child; }
-      &:dir(rtl) { @extend %linked:first-child; }
+      &:dir(ltr) { @extend %linked_right; }
+      &:dir(rtl) { @extend %linked_left; }
     }
   }
 
   &:drop(active) { // FIXME: untested
     box-shadow: none;
 
-    button.combo { @extend %button_basic:drop(active); }
+    button.combo { @extend %button_basic_drop_active; }
   }
 }
 
@@ -1394,14 +1404,14 @@ combobox {
   &:dir(rtl) { @extend %linked_middle; } // specificity bump
 }
 
-.linked:not(.vertical) > combobox:first-child > box > button.combo { @extend %linked:first-child; }
-.linked:not(.vertical) > combobox:last-child > box > button.combo { @extend %linked:last-child; }
-.linked:not(.vertical) > combobox:only-child > box > button.combo { @extend %linked:only-child; }
+.linked:not(.vertical) > combobox:first-child > box > button.combo { @extend %linked_left; }
+.linked:not(.vertical) > combobox:last-child > box > button.combo { @extend %linked_right; }
+.linked:not(.vertical) > combobox:only-child > box > button.combo { @extend %linked_only_child; }
 
 .linked.vertical > combobox > box > button.combo { @extend %linked_vertical_middle; }
-.linked.vertical > combobox:first-child > box > button.combo { @extend %linked_vertical:first-child;}
-.linked.vertical > combobox:last-child > box > button.combo { @extend %linked_vertical:last-child; }
-.linked.vertical > combobox:only-child > box > button.combo { @extend %linked_vertical:only-child; }
+.linked.vertical > combobox:first-child > box > button.combo { @extend %linked_vertical_top; }
+.linked.vertical > combobox:last-child > box > button.combo { @extend %linked_vertical_bottom; }
+.linked.vertical > combobox:only-child > box > button.combo { @extend %linked_vertical_only_child; }
 
 //----------//
 // Toolbars //
@@ -1550,11 +1560,12 @@ headerbar {
       }
     }
 
-    .subtitle:link { @extend *:link:selected; }
+    .subtitle:link { @extend %link_selected; }
 
     button {
       @include button(normal, $suggested_bg_color, $selected_fg_color);
 
+      @at-root %selection_mode_button_flat,
       &.flat { @include button(undecorated); }
 
       &:hover { @include button(hover, $suggested_bg_color, $selected_fg_color); }
@@ -1592,6 +1603,7 @@ headerbar {
         }
       }
 
+      @at-root %selection_mode_button_flat,
       &.flat { &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }}
 
       &:disabled {
@@ -2386,7 +2398,7 @@ notebook {
     > tabs > arrow {
       @extend %button_basic;
 
-      @extend %button_basic.flat;
+      @extend %button_basic_flat;
 
       min-height: 16px;
       min-width: 16px;
@@ -3887,7 +3899,7 @@ placessidebar {
     @at-root button.sidebar-button {
       @extend %button_basic.flat;
 
-      @extend %button_selected.flat;
+      @extend %button_selected_flat;
 
       min-height: 26px;
       min-width: 26px;
@@ -4363,12 +4375,12 @@ headerbar,
 //button.titlebutton {
 //  @extend %button_basic;
 
-//  @extend %button_basic.flat;
+//  @extend %button_basic_flat;
 
 //  @include _button_text_shadow;
 
 //  .selection-mode & {
-//    @extend %button.flat.suggested-action;
+//    @extend %selection_mode_button_flat;
 
 //    @extend %nobg_selected_items;
 //  }
@@ -4394,8 +4406,10 @@ headerbar.selection-mode button.titlebutton,
   @at-root %nobg_selected_items, & {
     color: $selected_fg_color;
 
+    @at-root %selected_items_disabled,
     &:disabled { color: mix($selected_fg_color, $selected_bg_color, 50%); }
 
+    @at-root %selected_items_backdrop,
     &:backdrop {
       color: $backdrop_selected_fg_color;
       &, &:hover { background-color: $selected_bg_color; } // Custom style. Fixes some backdrop states. Thunar etc.
