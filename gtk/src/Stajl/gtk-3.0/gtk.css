@@ -789,6 +789,8 @@ popover.background { padding: 2px; border-radius: 4; background-color: #e6e7e7; 
 
 .csd popover.background, popover.background { border: 1px solid #b7baba; border-radius: 4; }
 
+.csd popover.background { background-clip: padding-box; border-color: rgba(0, 0, 0, 0.23); }
+
 popover.background:backdrop { background-color: #e6e7e7; box-shadow: none; }
 
 popover.background > list, popover.background > .view, popover.background > iconview, popover.background > toolbar { border-style: none; background-color: transparent; }
