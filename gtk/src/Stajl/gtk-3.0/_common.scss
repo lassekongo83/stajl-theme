@@ -6,7 +6,7 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant=='dark', '-dark', '');
 $backdrop_transition: none;
 $button_transition: all 100ms $ease-out-quad;
-$button_radius: 0;
+$button_radius: 2px;
 $menu_radius: 0;
 $window_radius: 0;
 $popover_radius: $button_radius + 4;
@@ -1501,7 +1501,7 @@ headerbar {
   min-height: $_headerbar_height;
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: $alt_borders_color;
+  border-color: if($variant == 'light', $borders_color, $alt_borders_color);
   border-radius: 0;
 
   @include headerbar_fill;
@@ -2440,7 +2440,7 @@ notebook {
       color: $insensitive_fg_color;
       font-weight: bold;
 
-      border-width: 1px;         // for reorderable tabs
+      border-width: 0px;         // for reorderable tabs
       border-color: transparent; //
 
       &:hover {
