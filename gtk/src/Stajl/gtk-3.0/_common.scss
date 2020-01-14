@@ -2303,8 +2303,6 @@ notebook {
 
           &:hover { box-shadow: inset 0 -3px darken($borders_color, 5%), inset -1px 0 darken($borders_color, 5%); }
 
-          &:backdrop { box-shadow: none; }
-
           &:checked { box-shadow: inset 0 -3px $selected_bg_color, inset -1px 0 darken($borders_color, 5%); }
         }
       }
@@ -2318,8 +2316,6 @@ notebook {
           box-shadow: inset -1px 0 darken($borders_color, 5%);
 
           &:hover { box-shadow: inset 0 3px darken($borders_color, 5%), inset -1px 0 darken($borders_color, 5%); }
-
-          &:backdrop { box-shadow: none; }
 
           &:checked { box-shadow: inset 0 3px $selected_bg_color, inset -1px 0 darken($borders_color, 5%); }
         }
@@ -2335,8 +2331,6 @@ notebook {
 
           &:hover { box-shadow: inset -3px 0 darken($borders_color, 5%), inset 0 -1px darken($borders_color, 5%); }
 
-          &:backdrop { box-shadow: none; }
-
           &:checked { box-shadow: inset -3px 0 $selected_bg_color, inset 0 -1px darken($borders_color, 5%); }
         }
       }
@@ -2350,8 +2344,6 @@ notebook {
           box-shadow: inset 0 -1px darken($borders_color, 5%);
 
           &:hover { box-shadow: inset 3px 0 darken($borders_color, 5%), inset 0 -1px darken($borders_color, 5%); }
-
-          &:backdrop { box-shadow: none; }
 
           &:checked { box-shadow: inset 3px 0 $selected_bg_color, inset 0 -1px darken($borders_color, 5%); }
         }
