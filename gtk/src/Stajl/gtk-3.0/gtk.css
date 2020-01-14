@@ -629,13 +629,9 @@ window.csd > .titlebar:not(headerbar) { padding: 0; background-color: transparen
 
 .titlebar:not(headerbar) separator { background-color: #b7baba; }
 
-window.devel headerbar.titlebar:not(.selection-mode) { background: #e6e7e7 -gtk-icontheme("system-run-symbolic") 90% 0/256px 256px no-repeat, linear-gradient(to right, transparent 65%, rgba(53, 132, 228, 0.2)), linear-gradient(to top, #c4c7c7, #cccece 3px, #dcdddd); color: rgba(46, 52, 54, 0.1); }
+window.devel headerbar.titlebar:not(.selection-mode) { background: #e6e7e7 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, linear-gradient(to right, transparent 65%, rgba(53, 132, 228, 0.2)), linear-gradient(to top, #c4c7c7, #cccece 3px, #dcdddd); }
 
-window.devel headerbar.titlebar:not(.selection-mode) label { color: #2e3436; }
-
-window.devel headerbar.titlebar:not(.selection-mode):backdrop { background: #e6e7e7 -gtk-icontheme("system-run-symbolic") 90% 0/256px 256px no-repeat, image(#e6e7e7); color: rgba(46, 52, 54, 0.05); }
-
-window.devel headerbar.titlebar:not(.selection-mode):backdrop label { color: #787c7d; }
+window.devel headerbar.titlebar:not(.selection-mode):backdrop { background: #e6e7e7 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, image(#e6e7e7); }
 
 .path-bar button.text-button, .path-bar button.image-button, .path-bar button { padding-left: 4px; padding-right: 4px; }
 
@@ -1552,6 +1548,8 @@ paned.vertical > separator { margin: 0 0 -8px 0; padding: 0 0 8px 0; background-
 paned.vertical > separator.wide { margin: 0; padding: 0; background-repeat: repeat-x, repeat-x; background-position: bottom, top; }
 
 infobar { border-style: none; }
+
+infobar.action:hover > revealer > box { background-color: #f4ebe1; border-bottom: 1px solid #c4c7c7; }
 
 infobar.info, infobar.question, infobar.warning, infobar.error { text-shadow: none; }
 
