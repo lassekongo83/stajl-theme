@@ -1,2 +1,4 @@
 # stajl-theme
-Theme for GNOME
+A theme for GNOME based on Adwaita.
+
+(No screenshot yet as the theme is still in development.)
