@@ -1009,37 +1009,38 @@ toolbar.inline-toolbar toolbutton:backdrop {
 }
 
 %linked_only_child {
-    border-radius: $button_radius;
-    border-style: solid;
-    -gtk-outline-radius: $button_radius;
+  border-radius: $button_radius;
+  border-style: solid;
+  -gtk-outline-radius: $button_radius;
 }
 
 %linked_left {
-    border-top-left-radius: $button_radius;
-    border-bottom-left-radius: $button_radius;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right-style: none;
-    -gtk-outline-bottom-left-radius: $button_radius;
-    -gtk-outline-top-left-radius: $button_radius;
-    -gtk-outline-top-right-radius: 0;
-    -gtk-outline-bottom-right-radius: 0;
+  border-top-left-radius: $button_radius;
+  border-bottom-left-radius: $button_radius;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right-style: none;
+  -gtk-outline-bottom-left-radius: $button_radius;
+  -gtk-outline-top-left-radius: $button_radius;
+  -gtk-outline-top-right-radius: 0;
+  -gtk-outline-bottom-right-radius: 0;
 }
 
 %linked_right {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: $button_radius;
-    border-bottom-right-radius: $button_radius;
-    border-right-style: solid;
-    -gtk-outline-bottom-right-radius: $button_radius;
-    -gtk-outline-top-right-radius: $button_radius;
-    -gtk-outline-bottom-left-radius: 0;
-    -gtk-outline-top-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: $button_radius;
+  border-bottom-right-radius: $button_radius;
+  border-right-style: solid;
+  -gtk-outline-bottom-right-radius: $button_radius;
+  -gtk-outline-top-right-radius: $button_radius;
+  -gtk-outline-bottom-left-radius: 0;
+  -gtk-outline-top-left-radius: 0;
 }
 
 // .linked assumes Box, which reverses nodes in RTL, so 1st child is always left
 %linked {
+  &:checked { border-color: $alt_borders_color; } // FIXME: Should be in _drawing.scss
   @extend %linked_middle;
 
   &:first-child { @extend %linked_left; }
