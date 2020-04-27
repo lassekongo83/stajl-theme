@@ -1966,6 +1966,14 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .nautilus-window .searchbar-container { margin-top: -1px; }
 
+.disk-space-display { border-style: solid; border-width: 2px; }
+
+.disk-space-display.unknown { background-color: #b2b5b5; border-color: #989c9c; }
+
+.disk-space-display.used { background-color: #3584e4; border-color: #15539e; }
+
+.disk-space-display.free { background-color: #e6e7e7; border-color: #b2b5b5; }
+
 .thunar .standard-view { border-width: 0; }
 
 .thunar .sidebar .view, .thunar .sidebar iconview { background-color: #f3f3f3; }
