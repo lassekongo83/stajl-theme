@@ -2346,6 +2346,10 @@ notebook {
     border-color: $borders_color;
     border-width: 1px;
     background-color: darken($dark_fill, 8%);
+    &.top, &.bottom { // custom style
+      //background-image: linear-gradient(to bottom, darken($dark_fill, 8%), darken($dark_fill, 4%));
+      box-shadow: inset 0 1px transparentize($borders_color, 0.3), inset 0 2px transparentize($borders_color, 0.5);
+    }
 
     tabs { margin: -1px; }
 
@@ -2362,7 +2366,7 @@ notebook {
         > tab {
           box-shadow: inset -1px 0 darken($borders_color, 5%);
 
-          &:hover:not(:checked) { box-shadow: inset 0 -3px darken($borders_color, 5%), inset -1px 0 darken($borders_color, 5%); }
+          //&:hover:not(:checked) { box-shadow: inset 0 -3px darken($borders_color, 5%), inset -1px 0 darken($borders_color, 5%); }
 
           //&:checked { box-shadow: inset 0 -3px $selected_bg_color, inset -1px 0 darken($borders_color, 5%); }
         }
@@ -2376,7 +2380,7 @@ notebook {
         > tab {
           box-shadow: inset -1px 0 darken($borders_color, 5%);
 
-          &:hover:not(:checked) { box-shadow: inset 0 3px darken($borders_color, 5%), inset -1px 0 darken($borders_color, 5%); }
+          //&:hover:not(:checked) { box-shadow: inset 0 3px darken($borders_color, 5%), inset -1px 0 darken($borders_color, 5%); }
 
           //&:checked { box-shadow: inset 0 3px $selected_bg_color, inset -1px 0 darken($borders_color, 5%); }
         }
@@ -2390,7 +2394,7 @@ notebook {
         > tab {
           box-shadow: inset 0 -1px darken($borders_color, 5%);
 
-          &:hover:not(:checked) { box-shadow: inset -3px 0 darken($borders_color, 5%), inset 0 -1px darken($borders_color, 5%); }
+          //&:hover:not(:checked) { box-shadow: inset -3px 0 darken($borders_color, 5%), inset 0 -1px darken($borders_color, 5%); }
 
           //&:checked { box-shadow: inset -3px 0 $selected_bg_color, inset 0 -1px darken($borders_color, 5%); }
         }
@@ -2404,7 +2408,7 @@ notebook {
         > tab {
           box-shadow: inset 0 -1px darken($borders_color, 5%);
 
-          &:hover:not(:checked) { box-shadow: inset 3px 0 darken($borders_color, 5%), inset 0 -1px darken($borders_color, 5%); }
+          //&:hover:not(:checked) { box-shadow: inset 3px 0 darken($borders_color, 5%), inset 0 -1px darken($borders_color, 5%); }
 
           //&:checked { box-shadow: inset 3px 0 $selected_bg_color, inset 0 -1px darken($borders_color, 5%); }
         }
@@ -2495,7 +2499,7 @@ notebook {
 
         &.reorderable-page {
           border-color: transparentize($borders_color, 0.7);
-          background-color: transparentize($bg_color, 0.8);
+          background-color: darken($dark_fill, 10%);
         }
       }
 
