@@ -947,8 +947,6 @@ scrollbar slider:hover { background-color: #c9c9c7; }
 
 scrollbar slider:hover:active { background-color: #1b6acb; }
 
-scrollbar slider:backdrop { background-color: #616161; }
-
 scrollbar slider:disabled { background-color: transparent; }
 
 scrollbar.fine-tune slider { min-width: 6px; min-height: 6px; }
