@@ -1958,6 +1958,8 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .nautilus-window .searchbar-container { margin-top: -1px; }
 
+.nautilus-window paned > separator { background-image: none; background-size: 0; }
+
 .disk-space-display { border-style: solid; border-width: 2px; }
 
 .disk-space-display.unknown { background-color: #b2b5b5; border-color: #989c9c; }
