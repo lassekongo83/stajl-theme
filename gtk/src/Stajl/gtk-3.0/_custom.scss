@@ -54,6 +54,10 @@
         }
       }
     }
+    @if variant=='dark' {
+      &:not(:hover) { opacity: 0.8; } // slightly reduce the opacity of the otherwise very bright color in the dark theme
+      &:backdrop:not(:hover) { opacity: 0.5; }
+    }
   }
 
   // unmaximize titlebutton icon
@@ -70,6 +74,10 @@
                                           url('assets/titlebutton-unmaximize-hover@2.png'));
           }
         }
+      }
+      @if variant=='dark' {
+        &:not(:hover) { opacity: 0.8; } // slightly reduce the opacity of the otherwise very bright color in the dark theme
+        &:backdrop:not(:hover) { opacity: 0.5; }
       }
     }
   }
