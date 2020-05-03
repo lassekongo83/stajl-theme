@@ -54,10 +54,11 @@
         }
       }
     }
-    @if variant=='dark' {
-      &:not(:hover) { opacity: 0.8; } // slightly reduce the opacity of the otherwise very bright color in the dark theme
-      &:backdrop:not(:hover) { opacity: 0.5; }
-    }
+    // Not working, needs investigation
+    //@if variant=='dark' {
+    //  &:not(:hover) { opacity: 0.8; } // slightly reduce the opacity of the otherwise very bright color in the dark theme
+    //  &:backdrop:not(:hover) { opacity: 0.5; }
+    //}
   }
 
   // unmaximize titlebutton icon
@@ -75,10 +76,10 @@
           }
         }
       }
-      @if variant=='dark' {
-        &:not(:hover) { opacity: 0.8; } // slightly reduce the opacity of the otherwise very bright color in the dark theme
-        &:backdrop:not(:hover) { opacity: 0.5; }
-      }
+      //@if variant=='dark' {
+      //  &:not(:hover) { opacity: 0.8; } // slightly reduce the opacity of the otherwise very bright color in the dark theme
+      //  &:backdrop:not(:hover) { opacity: 0.5; }
+      //}
     }
   }
 }
@@ -362,13 +363,27 @@ XfdesktopIconView.view {
     > separator {
       background-image: none;
       background-size: 0;
-      //background-color: $base_color;
+      background-color: $borders_color;
     }
+  }
+
+  // sidebar
+  .sidebar {
+    box-shadow: inset -1px 0 transparentize($borders_color, 0.8), inset -2px 0 transparentize($borders_color, 0.9);
   }
 
   // Without this nautilus iconview grabs the bg_color
   notebook,
   notebook > stack:not(:only-child) searchbar { @extend %view; }
+
+  // pathbar
+  //.nautilus-path-bar button {
+  //  @include button(undecorated);
+  //  &:hover, &:last-child {
+  //    box-shadow: 0 3px $selected_bg_color;
+  //    border-radius: 0;
+  //  }
+  //}
 }
 
 // disk space pie
@@ -406,4 +421,17 @@ XfdesktopIconView.view {
 
   // https://github.com/lassekongo83/plano-theme/issues/37
   .shortcuts-pane { border-top: 0; }
+}
+
+// gnome-tweaks
+.tweak-categories {
+  background-color: mix($bg_color, $base_color, 50%);
+  box-shadow: inset -1px 0 transparentize($borders_color, 0.8), inset -2px 0 transparentize($borders_color, 0.9);
+  border-color: $borders_color;
+}
+
+list.tweak-categories separator {
+  // hide sidebar separators
+  // make the sidebar look like a normal sidebar
+  background: transparent;
 }
