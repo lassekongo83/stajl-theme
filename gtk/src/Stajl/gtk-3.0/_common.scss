@@ -3992,7 +3992,7 @@ placessidebar {
     }
 
     @at-root button.sidebar-button {
-      @extend %button_basic.flat;
+      @extend %button_basic_flat;
 
       @extend %button_selected_flat;
 
