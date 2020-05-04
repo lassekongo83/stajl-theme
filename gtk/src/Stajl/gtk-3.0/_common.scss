@@ -2482,6 +2482,8 @@ notebook {
       &:disabled { @include button(undecorated); }
     }
 
+    &.right > tabs > tab, &.left > tabs > tab { padding: 2px 10px; } // larger vertical padding on vertical tabs
+
     tab {
       min-height: 24px;
       min-width: 24px;
@@ -2497,6 +2499,7 @@ notebook {
 
       &:hover {
         color: mix($insensitive_fg_color, $fg_color, 50%);
+        background-color: darken($dark_fill, 3%);
 
         &.reorderable-page {
           border-color: transparentize($borders_color, 0.7);
