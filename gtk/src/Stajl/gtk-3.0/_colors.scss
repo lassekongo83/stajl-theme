@@ -15,7 +15,7 @@ $borders_edge: if($variant == 'light', transparentize(white, 0.6), transparentiz
 $link_color: if($variant == 'light', darken($selected_bg_color, 10%), lighten($selected_bg_color, 20%));
 $link_visited_color: if($variant == 'light', darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%));
 $top_hilight: $borders_edge;
-$dark_fill: if($variant == 'light', mix($borders_color, $bg_color, 70%), $bg_color);
+$dark_fill: if($variant == 'light', mix($borders_color, $bg_color, 70%), darken($base_color, 4%));
 $headerbar_color: if($variant == 'light', darken($bg_color, 6%), lighten($bg_color, 4%));
 $menu_color: if($variant == 'light', $base_color, mix($bg_color, $base_color, 20%));
 $popover_bg_color: $bg_color;

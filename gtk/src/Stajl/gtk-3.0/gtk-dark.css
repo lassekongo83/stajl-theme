@@ -871,11 +871,11 @@ notebook > header.right > tabs > tab, notebook > header.left > tabs > tab { padd
 
 notebook > header tab { min-height: 24px; min-width: 24px; padding: 0px 10px; outline-offset: 0px; color: #acadad; font-weight: bold; border-width: 0px; border-color: transparent; }
 
-notebook > header tab:hover { color: #cdcecd; background-color: #434446; }
+notebook > header tab:hover { color: #cdcecd; background-color: #2b2c2e; }
 
 notebook > header tab:hover.reorderable-page { border-color: rgba(45, 47, 48, 0.3); }
 
-notebook > header tab:hover.reorderable-page:not(:checked) { background-color: #434446; }
+notebook > header tab:hover.reorderable-page:not(:checked) { background-color: #2b2c2e; }
 
 notebook > header tab:backdrop { color: #858687; }
 
@@ -991,7 +991,7 @@ scrollbar button:backdrop:disabled { border-color: transparent; background-color
 
 treeview ~ scrollbar.vertical { border-top: 1px solid #2d2f30; margin-top: -1px; }
 
-switch { outline-offset: -4px; border: 1px solid #2d2f30; border-radius: 14px; color: #eeeeec; background-color: #4a4c4e; text-shadow: 0 1px rgba(0, 0, 0, 0.1); }
+switch { outline-offset: -4px; border: 1px solid #2d2f30; border-radius: 14px; color: #eeeeec; background-color: #323435; text-shadow: 0 1px rgba(0, 0, 0, 0.1); }
 
 switch:checked { color: #ffffff; border-color: #030c17; background-color: #1b6acb; text-shadow: 0 1px rgba(3, 12, 23, 0.5), 0 0 2px rgba(255, 255, 255, 0.6); }
 
@@ -1111,7 +1111,7 @@ menu menuitem radio:checked:not(:backdrop), menu menuitem radio:indeterminate:no
 
 treeview.view check:selected:focus, treeview.view check:selected, treeview.view radio:selected:focus, treeview.view radio:selected { color: #ffffff; }
 
-scale trough, scale fill, progressbar trough { border: 1px solid #4a4c4e; border-radius: 4px; background-color: #4a4c4e; }
+scale trough, scale fill, progressbar trough { border: 1px solid #323435; border-radius: 4px; background-color: #323435; }
 
 scale trough:disabled, scale fill:disabled, progressbar trough:disabled { background-color: #444648; }
 
