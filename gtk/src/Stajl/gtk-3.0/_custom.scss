@@ -94,6 +94,66 @@
   }
 }
 
+//--------------------//
+// Dark/alt headerbar //
+//--------------------//
+// not used in the dark theme
+$_button_bg_color: lighten($alt_headerbar_bg, 7.5%);
+$_button_border_color: darken($alt_headerbar_bg, 9%);
+
+%dark_header {
+  headerbar,
+  .titlebar {
+    @include headerbar_fill($alt_headerbar_bg, $hc: $alt_headerbar_border);
+    color: $alt_headerbar_fg;
+
+    label .title {
+      color: $alt_headerbar_fg;
+    }
+
+    .maximized &,
+    .fullscreen & { box-shadow: none; }
+
+    entry {
+      &, &:backdrop {
+        border-color: darken($alt_headerbar_bg, 8%);
+      }
+      &:focus { @include entry(focus); }
+    }
+
+    button,
+    button.toggle,
+    button.popup.toggle,
+    button.image-button,
+    button.image-button.toggle,
+    button.text-button,
+    button.text-button.toggle,
+    box button.toggle,
+    buttonbox.toggle,
+    stackswitcher button,
+    filechooser .path-bar.linked>button,
+    .path-bar button {
+      @include button(normal, $_button_bg_color, $alt_headerbar_fg);
+      &.flat {
+        @include button(undecorated);
+      }
+
+      &:hover {
+        @include button(hover, $_button_bg_color, $alt_headerbar_fg);
+      }
+      &:active,
+      &:checked {
+        @include button(active, $_button_bg_color, $alt_headerbar_fg);
+        border-color: black;
+      }
+    }
+
+    separator {
+      background: image(lighten($_button_border_color, 5%));
+    }
+  }
+}
+
 //-------------------//
 // Scrollbar buttons //
 //-------------------//
