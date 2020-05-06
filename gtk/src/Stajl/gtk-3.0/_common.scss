@@ -20,8 +20,9 @@ $_hb_btn_pad: if($_sizevariant=='default', 4px, 3px);
 $_img_btn_pad: if($_sizevariant=='default', 4px, 2px);
 $_sel_menu_pad: if($_sizevariant=='default', 6px 10px, 4px 10px);
 $_circ_btn_pad: if($_sizevariant=='default', 4px, 2px);
-$_switch_margin: if($_sizevariant=='default', 4px, 7px); // custom theme note: Same vertical margin as buttons to avoid a "jumping" headerbar when
+$_switch_margin: if($_sizevariant=='default', 4px, 4px); // custom theme note: Same vertical margin as buttons to avoid a "jumping" headerbar when
                                                          // switches are available. Headerbar switches needs extra styling though, or they'll look strange.
+                                                         // Alternatively use the compact sizevariant.
 
 // custom variables
 // duration
@@ -1560,7 +1561,9 @@ headerbar {
   border-color: if($variant == 'light', $borders_color, $alt_borders_color);
   border-radius: 0;
 
-  @include headerbar_fill;
+  //@include headerbar_fill;
+  @if $alt_header == 'false' { @include headerbar_fill; }
+  @else if $alt_header == 'true' { @include headerbar_fill($alt_headerbar_bg); }
 
   &:backdrop {
     //border-color: $backdrop_borders_color;
@@ -4429,7 +4432,12 @@ decoration {
   .tiled-top &,
   .tiled-right &,
   .tiled-bottom &,
-  .tiled-left & { border-radius: 0; }
+  .tiled-left & {
+    border-radius: 0;
+    box-shadow: none; // custom style: remove box-shadow on tiled windows
+  }
+
+  .tiled & { border: 1px solid transparentize(black, 0.8); } // custom style: border between tiled windows
 
   .popup & { box-shadow: none; }
 

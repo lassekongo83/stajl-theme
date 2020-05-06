@@ -47,7 +47,7 @@
             background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}.png'),
                                           url('assets/titlebutton-#{$k}#{$m}@2.png'));
           }
-          @else {
+          @else if ($variant=='dark' or $alt_header=='true') {
             background-image: -gtk-scaled(url('assets/titlebutton-#{$k}-hover.png'),
                                           url('assets/titlebutton-#{$k}-hover@2.png'));
           }
@@ -70,7 +70,7 @@
             background-image: -gtk-scaled(url('assets/titlebutton-unmaximize#{$m}.png'),
                                           url('assets/titlebutton-unmaximize#{$m}@2.png'));
           }
-          @else {
+          @else if ($variant=='dark' or $alt_header=='true') {
             background-image: -gtk-scaled(url('assets/titlebutton-unmaximize-hover.png'),
                                           url('assets/titlebutton-unmaximize-hover@2.png'));
           }
