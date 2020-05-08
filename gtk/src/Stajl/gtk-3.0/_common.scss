@@ -1748,8 +1748,8 @@ headerbar {
     padding: 4px;
 
     button.titlebutton {
-      min-height: 26px;
-      min-width: 26px;
+      min-height: 24px;
+      min-width: 24px;
       margin: 0;
       padding: 0;
     }
@@ -1801,6 +1801,11 @@ headerbar {
     border-top-left-radius: $window_radius;
     border-top-right-radius: $window_radius;
   }
+}
+
+// styled in _custom.css - alt colored widgets for the alt headerbar option.
+@if alt_header=='true' {
+  headerbar, .titlebar { @extend %alt_header; }
 }
 
 .background.tiled .titlebar,

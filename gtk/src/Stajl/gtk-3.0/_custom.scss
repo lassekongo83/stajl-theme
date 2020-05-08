@@ -43,11 +43,11 @@
     @each $k in ('close', 'maximize', 'minimize') {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-hover') {
         &.#{$k}#{$l} {
-          @if($variant=='light') {
+          @if($variant=='light' and $alt_header=='false') {
             background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}.png'),
                                           url('assets/titlebutton-#{$k}#{$m}@2.png'));
           }
-          @else if ($variant=='dark' or $alt_header=='true') {
+          @else {
             background-image: -gtk-scaled(url('assets/titlebutton-#{$k}-hover.png'),
                                           url('assets/titlebutton-#{$k}-hover@2.png'));
           }
@@ -66,11 +66,11 @@
     button.titlebutton {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-hover') {
         &.maximize#{$l} {
-          @if($variant=='light') {
+          @if($variant=='light' and $alt_header=='false') {
             background-image: -gtk-scaled(url('assets/titlebutton-unmaximize#{$m}.png'),
                                           url('assets/titlebutton-unmaximize#{$m}@2.png'));
           }
-          @else if ($variant=='dark' or $alt_header=='true') {
+          @else {
             background-image: -gtk-scaled(url('assets/titlebutton-unmaximize-hover.png'),
                                           url('assets/titlebutton-unmaximize-hover@2.png'));
           }
@@ -101,56 +101,53 @@
 $_button_bg_color: lighten($alt_headerbar_bg, 7.5%);
 $_button_border_color: darken($alt_headerbar_bg, 9%);
 
-%dark_header {
-  headerbar,
-  .titlebar {
-    @include headerbar_fill($alt_headerbar_bg, $hc: $alt_headerbar_border);
+%alt_header {
+  color: $alt_headerbar_fg;
+
+  label .title {
     color: $alt_headerbar_fg;
+  }
 
-    label .title {
-      color: $alt_headerbar_fg;
+  .maximized &,
+  .fullscreen & { box-shadow: none; }
+
+  entry {
+    &, &:backdrop {
+      border-color: darken($alt_headerbar_bg, 8%);
+    }
+    &:focus { @include entry(focus); }
+  }
+
+  button,
+  button.toggle,
+  button.popup.toggle,
+  button.image-button,
+  button.image-button.toggle,
+  button.text-button,
+  button.text-button.toggle,
+  box button.toggle,
+  buttonbox.toggle,
+  stackswitcher button,
+  filechooser .path-bar.linked>button,
+  .path-bar button {
+    background-image: none;
+    @include button(normal, $_button_bg_color, $alt_headerbar_fg);
+    &.flat {
+      @include button(undecorated);
     }
 
-    .maximized &,
-    .fullscreen & { box-shadow: none; }
-
-    entry {
-      &, &:backdrop {
-        border-color: darken($alt_headerbar_bg, 8%);
-      }
-      &:focus { @include entry(focus); }
+    &:hover {
+      @include button(hover, $_button_bg_color, $alt_headerbar_fg);
     }
-
-    button,
-    button.toggle,
-    button.popup.toggle,
-    button.image-button,
-    button.image-button.toggle,
-    button.text-button,
-    button.text-button.toggle,
-    box button.toggle,
-    buttonbox.toggle,
-    stackswitcher button,
-    filechooser .path-bar.linked>button,
-    .path-bar button {
-      @include button(normal, $_button_bg_color, $alt_headerbar_fg);
-      &.flat {
-        @include button(undecorated);
-      }
-
-      &:hover {
-        @include button(hover, $_button_bg_color, $alt_headerbar_fg);
-      }
-      &:active,
-      &:checked {
-        @include button(active, $_button_bg_color, $alt_headerbar_fg);
-        border-color: black;
-      }
+    &:active,
+    &:checked {
+      @include button(active, $_button_bg_color, $alt_headerbar_fg);
+      border-color: black;
     }
+  }
 
-    separator {
-      background: image(lighten($_button_border_color, 5%));
-    }
+  separator {
+    background: image(lighten($_button_border_color, 5%));
   }
 }
 
