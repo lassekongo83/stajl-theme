@@ -1790,7 +1790,7 @@ headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:
 
 headerbar button.titlebutton.close:backdrop:hover, .titlebar button.titlebutton.close:backdrop:hover, headerbar button.titlebutton.close:backdrop:active, .titlebar button.titlebutton.close:backdrop:active { background-color: #c75050; }
 
-headerbar button.titlebutton.maximize:hover, .titlebar button.titlebutton.maximize:hover, headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active, headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active { background-color: #15539e; }
+headerbar button.titlebutton.maximize:hover, .titlebar button.titlebutton.maximize:hover, headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active, headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active { background-color: rgba(255, 255, 255, 0.2); }
 
 headerbar button.titlebutton.close, .titlebar button.titlebutton.close { background-image: -gtk-scaled(url("assets/titlebutton-close-hover.png"), url("assets/titlebutton-close-hover@2.png")); }
 

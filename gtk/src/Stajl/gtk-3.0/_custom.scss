@@ -36,7 +36,7 @@
     }
     
     &.maximize, &.minimize { 
-      &:hover, &:active { background-color: $selected_bg_color; }
+      &:hover, &:active { background-color: if($variant == 'light' and $alt_header == 'false', $selected_bg_color, transparentize(white, 0.8)); }
     }
 
     // titlebutton icons
@@ -101,7 +101,7 @@
 $_button_bg_color: lighten($alt_headerbar_bg, 7.5%);
 $_button_border_color: darken($alt_headerbar_bg, 9%);
 
-%alt_header {
+%alt_titlebar {
   color: $alt_headerbar_fg;
 
   label .title {
@@ -148,6 +148,14 @@ $_button_border_color: darken($alt_headerbar_bg, 9%);
 
   separator {
     background: image(lighten($_button_border_color, 5%));
+  }
+}
+
+@if $alt_header=='true' {
+  .ssd .titlebar {
+    @include headerbar_fill($alt_headerbar_bg);
+    color: $alt_headerbar_fg; // TODO: Fix backdrop color.
+    border-width: 0;
   }
 }
 

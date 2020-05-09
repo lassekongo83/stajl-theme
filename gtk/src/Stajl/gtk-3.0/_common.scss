@@ -1561,9 +1561,7 @@ headerbar {
   border-color: if($variant == 'light', $borders_color, $alt_borders_color);
   border-radius: 0;
 
-  //@include headerbar_fill;
-  @if $alt_header == 'false' { @include headerbar_fill; }
-  @else if $alt_header == 'true' { @include headerbar_fill($alt_headerbar_bg); }
+  @include headerbar_fill;
 
   &:backdrop {
     //border-color: $backdrop_borders_color;
@@ -1801,11 +1799,6 @@ headerbar {
     border-top-left-radius: $window_radius;
     border-top-right-radius: $window_radius;
   }
-}
-
-// styled in _custom.css - alt colored widgets for the alt headerbar option.
-@if alt_header=='true' {
-  headerbar, .titlebar { @extend %alt_header; }
 }
 
 .background.tiled .titlebar,
