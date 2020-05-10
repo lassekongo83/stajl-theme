@@ -86,7 +86,6 @@
 
 .ssd .titlebar {
   border-width: 0;
-  //@include ssd_fill;
   padding: 2px 4px;
 
   &.default-decoration button.titlebutton {
@@ -98,14 +97,16 @@
 // Dark/alt headerbar //
 //--------------------//
 // not used in the dark theme
-$_button_bg_color: lighten($alt_headerbar_bg, 7.5%);
-$_button_border_color: darken($alt_headerbar_bg, 9%);
+$_button_bg_color: lighten($alt_headerbar_bg, 7.5%) !global;
+$_button_border_color: darken($alt_headerbar_bg, 10%) !global;
 
 %alt_titlebar {
   color: $alt_headerbar_fg;
+  &:backdrop { color: $alt_headerbar_backdrop_fg; }
 
   label .title {
     color: $alt_headerbar_fg;
+    &:backdrop { color: $alt_headerbar_backdrop_fg; }
   }
 
   .maximized &,
@@ -130,7 +131,7 @@ $_button_border_color: darken($alt_headerbar_bg, 9%);
   stackswitcher button,
   filechooser .path-bar.linked>button,
   .path-bar button {
-    background-image: none;
+    &:backdrop { color: $alt_headerbar_backdrop_fg; }
     @include button(normal, $_button_bg_color, $alt_headerbar_fg);
     &.flat {
       @include button(undecorated);
@@ -142,7 +143,7 @@ $_button_border_color: darken($alt_headerbar_bg, 9%);
     &:active,
     &:checked {
       @include button(active, $_button_bg_color, $alt_headerbar_fg);
-      border-color: black;
+      border-color: transparentize(black, 0.6);
     }
   }
 
@@ -152,10 +153,12 @@ $_button_border_color: darken($alt_headerbar_bg, 9%);
 }
 
 @if $alt_header=='true' {
+  .titlebar, headerbar { @extend %alt_titlebar; }
   .ssd .titlebar {
     @include headerbar_fill($alt_headerbar_bg);
-    color: $alt_headerbar_fg; // TODO: Fix backdrop color.
+    color: $alt_headerbar_fg;
     border-width: 0;
+    &:backdrop { color: $alt_headerbar_backdrop_fg; }
   }
 }
 
