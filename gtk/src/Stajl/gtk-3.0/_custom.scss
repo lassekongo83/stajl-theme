@@ -102,7 +102,11 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
 
 %alt_titlebar {
   color: $alt_headerbar_fg;
-  &:backdrop { color: $alt_headerbar_backdrop_fg; }
+  text-shadow: none;
+  &:backdrop {
+    color: $alt_headerbar_backdrop_fg;
+    text-shadow: none;
+  }
 
   label .title {
     color: $alt_headerbar_fg;
@@ -131,7 +135,11 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   stackswitcher button,
   filechooser .path-bar.linked>button,
   .path-bar button {
-    &:backdrop { color: $alt_headerbar_backdrop_fg; }
+    text-shadow: none;
+    &:backdrop {
+      color: $alt_headerbar_backdrop_fg;
+      text-shadow: none;
+    }
     @include button(normal, $_button_bg_color, $alt_headerbar_fg);
     &.flat {
       @include button(undecorated);
@@ -157,6 +165,7 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   .ssd .titlebar {
     @include headerbar_fill($alt_headerbar_bg);
     color: $alt_headerbar_fg;
+    text-shadow: none;
     border-width: 0;
     &:backdrop { color: $alt_headerbar_backdrop_fg; }
   }

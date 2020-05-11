@@ -1092,8 +1092,6 @@ style "xfsm-logout" {
   GtkDialog::content-area-spacing = 6
   GtkDialog::action-area-spacing  = 0
 
-  bg_pixmap[NORMAL] = "xfsmlogout.png"
-
   bg[NORMAL]   = @bg_color
   bg[SELECTED] = shade (1.18, @bg_color) # Border around the dialog
   fg[NORMAL]   = @fg_color
@@ -1264,6 +1262,3 @@ widget_class "*<GtkListItem>*"     style "fg-is-text-color-workaround"
 # Only match GtkCList and not the parent widgets, because that would also change the headers.
 widget_class "*<GtkCList>"         style "fg-is-text-color-workaround"
 widget_class "*<EelEditableLabel>" style "fg-is-text-color-workaround"
-
-# panel theming
-include "xfce-panel.rc"
