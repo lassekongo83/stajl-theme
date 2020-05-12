@@ -158,6 +158,10 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   separator {
     background: image(lighten($_button_border_color, 5%));
   }
+  // TODO: Checkbuttons
+  switch {
+    slider { background-color: transparentize(white, 0.5); }
+  }
 }
 
 @if $alt_header=='true' {
@@ -169,6 +173,49 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
     border-width: 0;
     &:backdrop { color: $alt_headerbar_backdrop_fg; }
   }
+}
+
+//----------------//
+// Switch buttons //
+//----------------//
+%switchbutton {
+  margin: 4px 0;
+  padding: 0;
+  border-radius: 99px;
+  border-width: 0;
+  background-color: transparentize(black, 0.62);
+  background-clip: padding-box;
+  transition: all $duration $ease-out;
+
+  &:checked {
+    background-color: transparentize($checkradio_bg_color, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.38;
+  }
+
+  slider {
+    margin: 2px; //-2px;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 99px;
+    background-color: if($variant=='light', white, transparentize($fg_color, 0.5));
+    transition: all $duration $ease-out;
+    box-shadow: 0 2px 2px -2px rgba(black, .3),
+                0 1px 2px -1px rgba(black, .24),
+                0 1px 2px -.6px rgba(black, .17);
+  }
+
+  &:hover > slider,
+  &:focus > slider {
+  }
+
+  &:checked > slider {
+    background-color: if($variant=='light', white, transparentize($fg_color, 0.5));
+  }
+
+  image { color: transparent; }
 }
 
 //-------------------//
