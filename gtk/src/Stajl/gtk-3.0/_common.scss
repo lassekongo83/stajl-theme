@@ -2630,6 +2630,7 @@ notebook {
 //------------//
 scrollbar {
   $_slider_min_length: 40px;
+  $_button_size: 14px;
 
   // enable steppers
   @at-root * {
@@ -2691,8 +2692,8 @@ scrollbar {
       }
 
       button {
-        min-width: 12px;
-        min-height: 12px;
+        min-width: $_button_size;
+        min-height: $_button_size;
         background-color: transparent; //$fg_color;
         background-clip: padding-box;
         border-radius: 100%;
@@ -2708,7 +2709,7 @@ scrollbar {
 
         button {
           margin: 0px -1px; //1px 2px;
-          min-width: 12px;
+          min-width: $_button_size;
         }
       }
 
@@ -2720,7 +2721,7 @@ scrollbar {
 
         button {
           margin: -1px 0px; //2px 1px;
-          min-height: 12px;
+          min-height: $_button_size;
         }
       }
     }
@@ -2736,8 +2737,8 @@ scrollbar {
   // button styling
   button {
     padding: 0;
-    min-width: 12px;
-    min-height: 12px;
+    min-width: $_button_size;
+    min-height: $_button_size;
     border-style: none;
     border-radius: 0;
     //transition-property: min-height, min-width, color;

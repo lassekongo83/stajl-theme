@@ -50,15 +50,12 @@
           @else {
             background-image: -gtk-scaled(url('assets/titlebutton-#{$k}-hover.png'),
                                           url('assets/titlebutton-#{$k}-hover@2.png'));
+            &:not(:hover) { opacity: 0.8; }
+            &:backdrop:not(:hover) { opacity: 0.5; }
           }
         }
       }
     }
-    // Not working, needs investigation
-    //@if variant=='dark' {
-    //  &:not(:hover) { opacity: 0.8; } // slightly reduce the opacity of the otherwise very bright color in the dark theme
-    //  &:backdrop:not(:hover) { opacity: 0.5; }
-    //}
   }
 
   // unmaximize titlebutton icon
@@ -73,13 +70,11 @@
           @else {
             background-image: -gtk-scaled(url('assets/titlebutton-unmaximize-hover.png'),
                                           url('assets/titlebutton-unmaximize-hover@2.png'));
+            &:not(:hover) { opacity: 0.8; }
+            &:backdrop:not(:hover) { opacity: 0.5; }
           }
         }
       }
-      //@if variant=='dark' {
-      //  &:not(:hover) { opacity: 0.8; } // slightly reduce the opacity of the otherwise very bright color in the dark theme
-      //  &:backdrop:not(:hover) { opacity: 0.5; }
-      //}
     }
   }
 }
