@@ -148,6 +148,9 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
       @include button(active, $_button_bg_color, $alt_headerbar_fg);
       border-color: transparentize(black, 0.6);
     }
+    &:disabled, &:backdrop:disabled {
+      @include button(insensitive, $_button_bg_color, $alt_headerbar_fg);
+    }
   }
 
   separator {
@@ -167,6 +170,19 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
     text-shadow: none;
     border-width: 0;
     &:backdrop { color: $alt_headerbar_backdrop_fg; }
+  }
+
+  #MozillaGtkWidget.background  {
+    &.default-decoration,
+    headerbar.titlebar {
+      button.titlebutton { color: $alt_headerbar_fg; }
+    }
+  }
+
+  window.background.chromium {
+    background-color: $alt_headerbar_bg;
+    button { border-color: $_button_border_color; } // tab borders
+    menubar { color: $alt_headerbar_fg; }
   }
 }
 
