@@ -118,7 +118,8 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
     &:focus { @include entry(focus); }
   }
 
-  button,
+  button:not(.titlebutton),
+  button.linked,
   button.toggle,
   button.popup.toggle,
   button.image-button,
@@ -143,8 +144,7 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
     &:hover {
       @include button(hover, $_button_bg_color, $alt_headerbar_fg);
     }
-    &:active,
-    &:checked {
+    &:active, &:checked, &:active:hover, &:checked:hover {
       @include button(active, $_button_bg_color, $alt_headerbar_fg);
       border-color: transparentize(black, 0.6);
     }
@@ -173,9 +173,9 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   }
 
   #MozillaGtkWidget.background  {
-    &.default-decoration,
-    headerbar.titlebar {
-      button.titlebutton { color: $alt_headerbar_fg; }
+    menubar, .menubar, menubar > menuitem:hover {
+      background-color: $alt_headerbar_bg;
+      color: $alt_headerbar_fg;
     }
   }
 
