@@ -1047,7 +1047,7 @@ toolbar.inline-toolbar toolbutton:backdrop {
 
 // .linked assumes Box, which reverses nodes in RTL, so 1st child is always left
 %linked {
-  &:checked { border-color: $alt_borders_color; } // FIXME: Should be in _drawing.scss
+  &:checked { @include button(active); } // FIXME: Otherwise it's not respecting the active state properly. Figure out why.
   @extend %linked_middle;
 
   &:first-child { @extend %linked_left; }
@@ -1518,6 +1518,10 @@ toolbar {
       margin-bottom: 1px;
     }
   }
+}
+
+.primary-toolbar { // _custom.scss
+  @extend %primary_toolbar;
 }
 
 //searchbar, location-bar & inline-toolbar

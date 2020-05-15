@@ -194,8 +194,14 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: if($c != $bg_color, _border_color($c), $borders_color);
-    border-bottom-color: if($c != $bg_color, _border_color($c, true), $alt_borders_color);
+    @if $variant=='light' {
+      border-color: if($c != $bg_color, _border_color($c), $borders_color);
+      border-bottom-color: if($c != $bg_color, _border_color($c, true), $alt_borders_color);
+    }
+    @else {
+      border-color: if($c != $bg_color, _border_color($c), transparentize($borders_color, 0.2));
+      border-bottom-color: if($c != $bg_color, _border_color($c, true), transparentize($alt_borders_color, 0.3));
+    }
     $button_fill: if($variant == 'light', linear-gradient(to top, darken($c, 4%) 2px, $c),
                                           linear-gradient(to top, lighten($c,3%) 2px, lighten($c,8%))) !global;
     background-image: $button_fill;
@@ -209,8 +215,8 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: if($c != $bg_color, _border_color($c), $borders_color);
-    border-bottom-color: if($c != $bg_color, _border_color($c, true), $alt_borders_color);
+    //border-color: if($c != $bg_color, _border_color($c), $borders_color);
+    //border-bottom-color: if($c != $bg_color, _border_color($c, true), $alt_borders_color);
     @if $variant == 'light' {
       $button_fill: linear-gradient(to top, $c, lighten($c, 2%) 1px) !global;
       @include _button_text_shadow($tc, lighten($c, 6%));
@@ -271,7 +277,7 @@
     color: $tc;
     outline-color: transparentize($tc, 0.7);
     border-color: if($c != $bg_color, _border_color($c), $alt_borders_color);
-    $button_fill: if($variant == 'light', image(darken($c, 14%)), image(darken($c, 9%))) !global;
+    $button_fill: if($variant == 'light', image(darken($c, 14%)), image(darken($c, 4%))) !global;
     background-image: $button_fill;
     @include _shadows(inset 0 1px transparentize($_hilight_color, 1), inset 0 1px 2px 0 transparentize(black, 0.9), $_button_edge);
 
@@ -279,7 +285,7 @@
     -gtk-icon-shadow: none;
 
     &:hover {
-      $button_fill: if($variant == 'light', image(darken($c, 20%)), image(darken($c, 15%))) !global;
+      $button_fill: if($variant == 'light', image(darken($c, 20%)), image(darken($c, 6%))) !global;
       background-image: $button_fill;
     }
   }
@@ -605,7 +611,7 @@
 
   @if $t==normal  {
     background-clip: if($checked, border-box, padding-box);
-    background-image: linear-gradient(to bottom, $c, $c);
+    background-image: linear-gradient(to bottom, lighten($c, 5%) 20%, $c 90%);
     border-color: $_border_color;
     box-shadow: 0 1px transparentize(black, 0.95);
     color: $tc;

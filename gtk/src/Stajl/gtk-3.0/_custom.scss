@@ -273,6 +273,19 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   }
 }
 
+//-----------------//
+// Primary toolbar //
+//-----------------//
+
+%primary_toolbar {
+  button,
+  buttom.image-button,
+  button.text-button,
+  button.toggle {
+    &:hover { border-color: $borders_color; }
+  }
+}
+
 //------//
 // XFCE //
 //------//
