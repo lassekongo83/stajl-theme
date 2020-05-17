@@ -189,6 +189,7 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
 //----------------//
 // Switch buttons //
 //----------------//
+// TODO: May need a border.
 %switchbutton {
   margin: 4px 0;
   padding: 0;
@@ -199,7 +200,7 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   transition: all $duration $ease-out;
 
   &:checked {
-    background-color: transparentize($checkradio_bg_color, 0.4);
+    background-color: $checkradio_bg_color;
   }
 
   &:disabled {
@@ -207,9 +208,9 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   }
 
   slider {
-    margin: 2px; //-2px;
-    min-width: 20px;
-    min-height: 20px;
+    margin: 4px; //-2px;
+    min-width: 18px;
+    min-height: 18px;
     border-radius: 99px;
     background-color: if($variant=='light', white, transparentize($fg_color, 0.5));
     transition: all $duration $ease-out;
@@ -220,6 +221,10 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
 
   &:hover > slider,
   &:focus > slider {
+    background-color: if($variant=='light', white, transparentize($fg_color, 0.5));
+    box-shadow: 0 2px 2px -2px rgba(black, .5),
+                0 1px 2px -1px rgba(black, .44),
+                0 1px 2px -.6px rgba(black, .37);
   }
 
   &:checked > slider {
@@ -516,9 +521,9 @@ XfdesktopIconView.view {
   }
 
   // sidebar
-  .sidebar {
-    box-shadow: inset -1px 0 transparentize($borders_color, 0.8), inset -2px 0 transparentize($borders_color, 0.9);
-  }
+  //.sidebar {
+  //  box-shadow: inset -1px 0 transparentize($borders_color, 0.8), inset -2px 0 transparentize($borders_color, 0.9);
+  //}
 
   // Without this nautilus iconview grabs the bg_color
   notebook,

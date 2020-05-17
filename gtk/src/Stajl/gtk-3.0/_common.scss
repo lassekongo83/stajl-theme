@@ -8,7 +8,7 @@ $backdrop_transition: none;
 $button_transition: all 100ms $ease-out-quad;
 $button_radius: 2px;
 $menu_radius: 0;
-$window_radius: 2px;
+$window_radius: 0;
 $popover_radius: $button_radius + 4;
 
 // Optional compact sizes for buttons, headerbar and headerbar widgets
@@ -1565,7 +1565,7 @@ searchbar > revealer > box {
 headerbar {
   padding: 0 4px;
   min-height: $_headerbar_height;
-  border-width: 0; //0 0 1px;
+  border-width: 0 0 1px;
   border-style: solid;
   border-color: if($variant == 'light', $borders_color, $alt_borders_color);
   border-radius: 0;

@@ -499,18 +499,17 @@
 //
   $gradient: linear-gradient(to top, darken($c, 2%), lighten($c, 1%));
 
-  @if $variant == 'dark' { $gradient: linear-gradient(to top, lighten($c, 4%), lighten($c, 6%)); }
+  @if $variant == 'dark' {
+    $gradient: linear-gradient(to top, lighten($c, 4%), lighten($c, 6%));
+    border-color: transparentize($borders_color, 0.3);
+  }
 
   @if $ov != none { background: if($alt_header=='true', $ac $ov, $c $ov); }
   @else { background: if($alt_header=='true', $ac, $c); }
 
   box-shadow: inset 0 1px if($alt_header == 'false', $hc, transparentize($hc, 0.3)); // top highlight
 
-  //border-color: transparent;
-
-  //@if $variant == 'dark' or $alt_header == 'true' {
-    //border-color: transparent; //transparentize($borders_color, 0.3);
-  //}
+  @if $alt_header == 'true' { border-color: transparent; }
 }
 
 @mixin overshoot($p, $t:normal, $c:$fg_color) {
