@@ -1565,7 +1565,7 @@ searchbar > revealer > box {
 headerbar {
   padding: 0 4px;
   min-height: $_headerbar_height;
-  border-width: 0 0 1px;
+  border-width: 0; //0 0 1px;
   border-style: solid;
   border-color: if($variant == 'light', $borders_color, $alt_borders_color);
   border-radius: 0;
@@ -2860,8 +2860,8 @@ radio {
     }
   }
 
-  min-height: 14px;
-  min-width: 14px;
+  min-height: 16px;
+  min-width: 16px;
   border: 1px solid;
   -gtk-icon-source: none;
 
@@ -4386,7 +4386,7 @@ decoration {
   //.csd & { background-color: black; } // transparent makes gtk3 leak light on the corners #2537
 
   // server-side decorations as used by mutter
-  .ssd & { box-shadow: 0 0 0 1px $_wm_border; } //just doing borders, wm draws actual shadows
+  //.ssd & { box-shadow: 0 0 0 1px $_wm_border; } //just doing borders, wm draws actual shadows
   .ssd &.maximized { box-shadow: none; } // Custom style: gets rid of the top hilight on maximized ssd
 
   .csd.popup & {

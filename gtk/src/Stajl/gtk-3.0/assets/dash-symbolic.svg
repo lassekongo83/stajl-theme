@@ -14,11 +14,11 @@
    inkscape:export-filename="/home/sam/dev/RESOURCES/gnome-icon-theme-symbolic/src/gnome-stencils.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
-   height="14"
+   height="16"
    id="svg7384"
    version="1.1"
-   inkscape:version="0.92.1 r"
-   width="14">
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   width="16">
   <metadata
      id="metadata90">
     <rdf:RDF>
@@ -37,7 +37,7 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="1.3825551"
+     inkscape:cx="-5.7806103"
      inkscape:cy="7.9276321"
      gridtolerance="10"
      inkscape:guide-bbox="true"
@@ -59,9 +59,9 @@
      inkscape:snap-nodes="false"
      inkscape:snap-others="false"
      inkscape:snap-to-guides="true"
-     inkscape:window-height="829"
+     inkscape:window-height="913"
      inkscape:window-maximized="1"
-     inkscape:window-width="1600"
+     inkscape:window-width="1920"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:zoom="25.058754"
@@ -98,59 +98,60 @@
      id="layer9"
      inkscape:label="status"
      style="display:inline"
-     transform="translate(-401.00015,-359)">
+     transform="translate(-401.00015,-357)">
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.63586509;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.0627451"
        id="rect7600"
        width="8"
        height="2"
-       x="404.00015"
-       y="365" />
+       x="405.00015"
+       y="364"
+       ry="1" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer10"
      inkscape:label="devices"
      style="display:inline"
-     transform="translate(-401.00015,-359)" />
+     transform="translate(-401.00015,-357)" />
   <g
      inkscape:groupmode="layer"
      id="layer11"
      inkscape:label="apps"
-     transform="translate(-401.00015,-359)" />
+     transform="translate(-401.00015,-357)" />
   <g
      inkscape:groupmode="layer"
      id="layer13"
      inkscape:label="places"
      style="display:inline"
-     transform="translate(-401.00015,-359)" />
+     transform="translate(-401.00015,-357)" />
   <g
      inkscape:groupmode="layer"
      id="layer14"
      inkscape:label="mimetypes"
-     transform="translate(-401.00015,-359)" />
+     transform="translate(-401.00015,-357)" />
   <g
      inkscape:groupmode="layer"
      id="layer15"
      inkscape:label="emblems"
      style="display:inline"
-     transform="translate(-401.00015,-359)" />
+     transform="translate(-401.00015,-357)" />
   <g
      inkscape:groupmode="layer"
      id="g71291"
      inkscape:label="emotes"
      style="display:inline"
-     transform="translate(-401.00015,-359)" />
+     transform="translate(-401.00015,-357)" />
   <g
      inkscape:groupmode="layer"
      id="g4953"
      inkscape:label="categories"
      style="display:inline"
-     transform="translate(-401.00015,-359)" />
+     transform="translate(-401.00015,-357)" />
   <g
      inkscape:groupmode="layer"
      id="layer12"
      inkscape:label="actions"
      style="display:inline"
-     transform="translate(-401.00015,-359)" />
+     transform="translate(-401.00015,-357)" />
 </svg>
