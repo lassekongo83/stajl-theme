@@ -198,14 +198,14 @@
       border-color: if($c != $bg_color, _border_color($c), $borders_color);
       border-bottom-color: if($c != $bg_color, _border_color($c, true), $alt_borders_color);
     }
-    @else {
-      border-color: if($c != $bg_color, _border_color($c), transparentize($borders_color, 0.2));
-      border-bottom-color: if($c != $bg_color, _border_color($c, true), transparentize($alt_borders_color, 0.3));
+    @else { // dark theme
+      border-color: if($c != $bg_color, _border_color($c), transparentize($borders_color, 0.4));
+      border-bottom-color: if($c != $bg_color, _border_color($c, true), transparentize(darken($alt_borders_color, 3%), 0.4));
     }
     $button_fill: if($variant == 'light', linear-gradient(to top, darken($c, 4%) 2px, $c),
-                                          linear-gradient(to top, lighten($c,3%) 2px, lighten($c,8%))) !global;
+                                          linear-gradient(to top, lighten($c,6%) 2px, lighten($c,12%))) !global;
     background-image: $button_fill;
-    @include _button_text_shadow($tc, $c);
+    //@include _button_text_shadow($tc, $c);
     @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
   }
 
@@ -223,7 +223,7 @@
       @include _shadows(inset 0 1px _button_hilight_color(lighten($c, 6%)), $_button_edge, $_button_shadow);
     }
     @else {
-      $button_fill: linear-gradient(to top, lighten($c,5%) 2px, lighten($c, 10%)) !global;
+      $button_fill: linear-gradient(to top, lighten($c,8%) 2px, lighten($c, 14%)) !global;
       @include _button_text_shadow($tc,lighten($c, 6%));
       @include _shadows(inset 0 1px _button_hilight_color(darken($c, 2%)), $_button_edge, $_button_shadow);
     }
@@ -237,7 +237,7 @@
     color: $tc;
     outline-color: transparentize($tc, 0.7);
     border-color: if($c != $bg_color, _border_color($c, true), $alt_borders_color);
-    @include _button_text_shadow($tc, $c);
+    //@include _button_text_shadow($tc, $c);
     @if $variant == 'light' {
       background-image: linear-gradient(to bottom, lighten($c, 5%) 20%, $c 90%);
        @include _shadows(inset 0 1px _button_hilight_color(lighten($c, 6%)),
@@ -508,6 +508,9 @@
   @else { background: if($alt_header=='true', $ac, $c); }
 
   box-shadow: inset 0 1px if($alt_header == 'false', $hc, transparentize($hc, 0.3)); // top highlight
+              //0 3px rgba(0,0,0, 0.04),
+              //0 2px rgba(0,0,0, 0.08),
+              //0 1px rgba(0,0,0, 0.1);
 
   @if $alt_header == 'true' { border-color: transparent; }
 }

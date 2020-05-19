@@ -95,7 +95,7 @@
 $_button_bg_color: lighten($alt_headerbar_bg, 7.5%) !global;
 $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
 
-%alt_titlebar {
+%alt_titlebar { // TODO: selection-mode titlebar
   color: $alt_headerbar_fg;
   text-shadow: none;
   &:backdrop {
@@ -500,6 +500,62 @@ XfdesktopIconView.view {
 }
 
 //------//
+// Mate //
+//------//
+.gnome-panel-menu-bar,
+.mate-panel-menu-bar {
+
+  &, menubar { background-color: $alt_headerbar_bg; }
+
+  menubar,
+  #PanelApplet label,
+  #PanelApplet image { color: $alt_headerbar_fg; }
+
+  // Panel buttons
+  button:not(#tasklist-button) {
+    @extend %panelbutton;
+  }
+
+  button,
+  #tasklist-button {
+    label, image { color: inherit; }
+  }
+
+  .wnck-pager {
+    color: mix($alt_headerbar_fg, black, 50%);
+    background-color: darken($alt_headerbar_bg, 10%);
+
+    &:hover {
+      background-color: lighten($alt_headerbar_bg, 5%);
+    }
+
+    &:selected {
+      color: lighten($selected_bg_color, 20%);
+      background-color: $selected_bg_color;
+    }
+  }
+
+  na-tray-applet {
+    -NaTrayApplet-icon-padding: 0;
+    -NaTrayApplet-icon-size: 16px;
+  }
+}
+
+// Application specific fixes should be avoided as much as possible! In some cases they are unavoidable.
+
+// Caja
+.caja-desktop { @extend .nautilus-desktop.nautilus-canvas-item; }
+.caja-notebook { border-top: 1px solid $borders_color; }
+.caja-side-pane .frame { border-width: 1px 0 0; }
+.caja-notebook .frame { border-width: 0 0 1px; }
+
+// Desktop icons FIXME: Remove legacy nautilus stuff after Ubuntu 18.04 LTS ends support
+.nautilus-desktop.nautilus-canvas-item, .nemo-desktop.nemo-canvas-item {
+  color: white;
+  text-shadow: 1px 1px 2px transparentize(black, 0.2);
+}
+
+//------//
 // Apps //
 //------//
 
@@ -587,4 +643,11 @@ list.tweak-categories separator {
   // hide sidebar separators
   // make the sidebar look like a normal sidebar
   background: transparent;
+}
+
+// Evolution - https://github.com/lassekongo83/zuki-themes/issues/119
+.table-header {
+  @extend %column_header_button;
+  padding: 4px 0 4px 0;
+  min-height: 24px;
 }
