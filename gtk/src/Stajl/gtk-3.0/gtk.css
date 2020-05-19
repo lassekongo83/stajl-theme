@@ -1982,11 +1982,17 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .disk-space-display { border-style: solid; border-width: 2px; }
 
-.disk-space-display.unknown { background-color: #b8b8b8; border-color: #9f9e9e; }
+.disk-space-display.unkown { background-color: #888; border-color: shade(#888, 0.7); color: #888; }
 
-.disk-space-display.used { background-color: #297fb8; border-color: #164565; }
+.disk-space-display.unkown.border { color: shade(#888, 0.7); }
 
-.disk-space-display.free { background-color: #ebebeb; border-color: #b8b8b8; }
+.disk-space-display.used { background-color: #6ACAD8; border-color: shade(#6ACAD8, 0.7); color: #6ACAD8; }
+
+.disk-space-display.used.border { color: shade(#6ACAD8, 0.7); }
+
+.disk-space-display.free { background-color: #eeeeec; border-color: shade(#eeeeec, 0.7); color: #eeeeec; }
+
+.disk-space-display.free.border { color: shade(#eeeeec, 0.7); }
 
 .thunar .standard-view { border-width: 0; }
 

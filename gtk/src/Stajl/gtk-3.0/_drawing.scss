@@ -508,9 +508,6 @@
   @else { background: if($alt_header=='true', $ac, $c); }
 
   box-shadow: inset 0 1px if($alt_header == 'false', $hc, transparentize($hc, 0.3)); // top highlight
-              //0 3px rgba(0,0,0, 0.04),
-              //0 2px rgba(0,0,0, 0.08),
-              //0 1px rgba(0,0,0, 0.1);
 
   @if $alt_header == 'true' { border-color: transparent; }
 }
