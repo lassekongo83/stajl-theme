@@ -345,8 +345,6 @@ button.font separator, button.file separator { background-color: transparent; }
 
 button.font > box > box > label { font-weight: bold; }
 
-.inline-toolbar button, .inline-toolbar button:backdrop { border-radius: 2px; border-width: 1px; }
-
 .primary-toolbar button { -gtk-icon-shadow: none; }
 
 button.circular { border-radius: 9999px; -gtk-outline-radius: 9999px; padding: 4px; background-origin: padding-box, border-box; background-clip: padding-box, border-box; }
@@ -383,25 +381,25 @@ button.circular:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:b
 
 .inline-toolbar toolbutton > button:backdrop:disabled:active, .inline-toolbar toolbutton > button:backdrop:disabled:checked { color: #575557; border-color: #282728; background-image: image(#2a292a); box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
 
-toolbar.inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar toolbutton:backdrop > button.flat, .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .inline-toolbar button, .inline-toolbar button:backdrop, .linked > button, .linked > button:hover, .linked > button:active, .linked > button:checked, .linked > button:backdrop, .xfce4-panel.background menu .linked button, filechooser .path-bar.linked > button, .linked > combobox > box > button.combo:dir(ltr), .linked > combobox > box > button.combo:dir(rtl) { border-radius: 0; border-right-style: none; -gtk-outline-radius: 0; }
+toolbar.inline-toolbar toolbutton > button.flat, .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .inline-toolbar button, .linked > button, .xfce4-panel.background menu .linked button, filechooser .path-bar.linked > button, .linked:not(.vertical) > combobox > box > button.combo { border-right-style: none; border-radius: 0; -gtk-outline-radius: 0; }
 
-toolbar.inline-toolbar toolbutton:only-child > button.flat, toolbar.inline-toolbar toolbutton:backdrop:only-child > button.flat, .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked > button:only-child, .xfce4-panel.background menu .linked button:only-child, filechooser .path-bar.linked > button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo { border-radius: 2px; border-style: solid; -gtk-outline-radius: 2px; }
+toolbar.inline-toolbar toolbutton:only-child > button.flat, .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked > button:only-child, .xfce4-panel.background menu .linked button:only-child, filechooser .path-bar.linked > button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo { border-style: solid; border-radius: 2px; -gtk-outline-radius: 2px; }
 
-toolbar.inline-toolbar toolbutton:first-child > button.flat, toolbar.inline-toolbar toolbutton:backdrop:first-child > button.flat, .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked > button:first-child, .xfce4-panel.background menu .linked button:first-child, filechooser .path-bar.linked > button:dir(ltr):first-child, filechooser .path-bar.linked > button:dir(rtl):last-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo { border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-right-style: none; -gtk-outline-bottom-left-radius: 2px; -gtk-outline-top-left-radius: 2px; -gtk-outline-top-right-radius: 0; -gtk-outline-bottom-right-radius: 0; }
+toolbar.inline-toolbar toolbutton:first-child > button.flat, .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked > button:first-child, .xfce4-panel.background menu .linked button:first-child, filechooser .path-bar.linked > button:dir(ltr):first-child, filechooser .path-bar.linked > button:dir(rtl):last-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo { border-top-left-radius: 2px; border-bottom-left-radius: 2px; -gtk-outline-top-left-radius: 2px; -gtk-outline-bottom-left-radius: 2px; }
 
-toolbar.inline-toolbar toolbutton:last-child > button.flat, toolbar.inline-toolbar toolbutton:backdrop:last-child > button.flat, .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked > button:last-child, .xfce4-panel.background menu .linked button:last-child, filechooser .path-bar.linked > button:dir(ltr):last-child, filechooser .path-bar.linked > button:dir(rtl):first-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo { border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-right-style: solid; -gtk-outline-bottom-right-radius: 2px; -gtk-outline-top-right-radius: 2px; -gtk-outline-bottom-left-radius: 0; -gtk-outline-top-left-radius: 0; }
+toolbar.inline-toolbar toolbutton:last-child > button.flat, .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked > button:last-child, .xfce4-panel.background menu .linked button:last-child, filechooser .path-bar.linked > button:dir(ltr):last-child, filechooser .path-bar.linked > button:dir(rtl):first-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo { border-right-style: solid; border-top-right-radius: 2px; border-bottom-right-radius: 2px; -gtk-outline-top-right-radius: 2px; -gtk-outline-bottom-right-radius: 2px; }
 
 .linked:not(.vertical) > spinbutton:checked:not(.vertical), .linked:not(.vertical) > entry:checked, .inline-toolbar button:checked, .linked > button:checked, .xfce4-panel.background menu .linked button:checked { color: #eeeeec; outline-color: rgba(238, 238, 236, 0.3); border-color: #1b1b1b; background-image: image(#262526); box-shadow: inset 0 1px rgba(255, 255, 255, 0), inset 0 1px 2px 0 rgba(0, 0, 0, 0.1); text-shadow: none; -gtk-icon-shadow: none; }
 
 .linked:not(.vertical) > spinbutton:checked:hover:not(.vertical), .linked:not(.vertical) > entry:checked:hover, .inline-toolbar button:checked:hover, .linked > button:checked:hover, .xfce4-panel.background menu .linked button:checked:hover { background-image: image(#212021); }
 
-.linked.vertical > spinbutton:not(.vertical), .linked.vertical > entry, .linked.vertical > button, .linked.vertical > button:hover, .linked.vertical > button:active, .linked.vertical > button:checked, .linked.vertical > button:backdrop, .linked.vertical > combobox > box > button.combo { border-style: solid solid none solid; border-radius: 0; }
+.linked.vertical > spinbutton:not(.vertical), .linked.vertical > entry, .linked.vertical > button, .linked.vertical > combobox > box > button.combo { border-style: solid solid none solid; border-radius: 0; -gtk-outline-radius: 0; }
 
-.linked.vertical > spinbutton:first-child:not(.vertical), .linked.vertical > entry:first-child, .linked.vertical > button:first-child, .linked.vertical > combobox:first-child > box > button.combo { border-top-left-radius: 2px; border-top-right-radius: 2px; }
+.linked.vertical > spinbutton:first-child:not(.vertical), .linked.vertical > entry:first-child, .linked.vertical > button:first-child, .linked.vertical > combobox:first-child > box > button.combo { border-top-left-radius: 2px; border-top-right-radius: 2px; -gtk-outline-top-left-radius: 2px; -gtk-outline-top-right-radius: 2px; }
 
-.linked.vertical > spinbutton:last-child:not(.vertical), .linked.vertical > entry:last-child, .linked.vertical > button:last-child, .linked.vertical > combobox:last-child > box > button.combo { border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; border-style: solid; }
+.linked.vertical > spinbutton:last-child:not(.vertical), .linked.vertical > entry:last-child, .linked.vertical > button:last-child, .linked.vertical > combobox:last-child > box > button.combo { border-bottom-style: solid; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; -gtk-outline-bottom-left-radius: 2px; -gtk-outline-bottom-right-radius: 2px; }
 
-.linked.vertical > spinbutton:only-child:not(.vertical), .linked.vertical > entry:only-child, .linked.vertical > button:only-child, .linked.vertical > combobox:only-child > box > button.combo { border-radius: 2px; border-style: solid; }
+.linked.vertical > spinbutton:only-child:not(.vertical), .linked.vertical > entry:only-child, .linked.vertical > button:only-child, .linked.vertical > combobox:only-child > box > button.combo { border-style: solid; border-radius: 2px; -gtk-outline-radius: 2px; }
 
 modelbutton.flat, .menuitem.button.flat, modelbutton.flat:backdrop, modelbutton.flat:backdrop:hover, .menuitem.button.flat:backdrop, .menuitem.button.flat:backdrop:hover, list row button.image-button:not(.flat), button:link, button:visited, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, calendar.button, .scale-popup button:hover, .scale-popup button:backdrop:hover, .scale-popup button:backdrop:disabled, .scale-popup button:backdrop { background-color: transparent; background-image: none; border-color: transparent; box-shadow: inset 0 1px rgba(255, 255, 255, 0), 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
@@ -1413,13 +1411,11 @@ messagedialog .titlebar { min-height: 20px; background-image: none; background-c
 
 messagedialog.csd.background { border-bottom-left-radius: 1; border-bottom-right-radius: 1; }
 
-messagedialog.csd .dialog-action-area button { padding: 10px 14px; border-radius: 0; border-left-style: solid; border-right-style: none; border-bottom-style: none; }
+messagedialog.csd .dialog-action-area button { padding: 10px 14px; border-right-style: none; border-bottom-style: none; border-radius: 0; -gtk-outline-radius: 0; }
 
-messagedialog.csd .dialog-action-area button:first-child:not(:only-child) { border-left-style: none; border-bottom-left-radius: 4px; -gtk-outline-bottom-left-radius: 4px; -gtk-outline-top-left-radius: 0px; -gtk-outline-top-right-radius: 0px; -gtk-outline-bottom-right-radius: 0px; }
+messagedialog.csd .dialog-action-area button:first-child { border-left-style: none; border-bottom-left-radius: 4px; -gtk-outline-bottom-left-radius: 4px; }
 
-messagedialog.csd .dialog-action-area button:last-child:not(:only-child) { border-bottom-right-radius: 4px; -gtk-outline-bottom-right-radius: 4px; -gtk-outline-top-right-radius: 0px; -gtk-outline-bottom-left-radius: 0px; -gtk-outline-top-left-radius: 0px; }
-
-messagedialog.csd .dialog-action-area button:only-child { border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; -gtk-outline-top-right-radius: 0px; -gtk-outline-top-left-radius: 0px; -gtk-outline-bottom-left-radius: 4px; -gtk-outline-bottom-right-radius: 4px; }
+messagedialog.csd .dialog-action-area button:last-child { border-bottom-right-radius: 4px; -gtk-outline-bottom-right-radius: 4px; }
 
 filechooser .dialog-action-box { border-top: 1px solid #262526; }
 
