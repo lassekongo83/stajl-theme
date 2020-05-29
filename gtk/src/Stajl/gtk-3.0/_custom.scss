@@ -663,7 +663,6 @@ XfdesktopIconView.view {
 // gnome-tweaks
 .tweak-categories {
   background-color: mix($bg_color, $base_color, 50%);
-  box-shadow: inset -1px 0 transparentize($borders_color, 0.8), inset -2px 0 transparentize($borders_color, 0.9);
   border-color: $borders_color;
 }
 

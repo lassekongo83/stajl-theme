@@ -2114,7 +2114,7 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .thunar .shortcuts-pane { border-top: 0; }
 
-.tweak-categories { background-color: whitesmoke; box-shadow: inset -1px 0 rgba(189, 189, 189, 0.2), inset -2px 0 rgba(189, 189, 189, 0.1); border-color: #bdbdbd; }
+.tweak-categories { background-color: whitesmoke; border-color: #bdbdbd; }
 
 list.tweak-categories separator { background: transparent; }
 
