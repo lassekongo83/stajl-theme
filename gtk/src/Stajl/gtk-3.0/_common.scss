@@ -1574,16 +1574,16 @@ headerbar {
   }
 
   // Darken switchbuttons for headerbars. issue #1588
-  stackswitcher button:checked,
-  button.toggle:checked {
+  //stackswitcher button:checked,
+  //button.toggle:checked {
 
-    background: if($variant == 'light', image(darken($bg_color, 17%)), image(darken($bg_color, 9%)));
-    border-color: darken($borders_color, 3%);
-    border-top-color: darken($borders_color, 8%);
-    &:backdrop {
-      @include button(backdrop-active);
-    }
-  }
+  //  background: if($variant == 'light', image(darken($bg_color, 17%)), image(darken($bg_color, 9%)));
+  //  border-color: darken($borders_color, 3%);
+  //  border-top-color: darken($borders_color, 8%);
+  //  &:backdrop {
+  //    @include button(backdrop-active);
+  //  }
+  //}
 
   .selection-mode &,
   &.selection-mode {
@@ -3742,15 +3742,15 @@ messagedialog { // Message Dialog styling
     background-image: none;
     background-color: $bg_color;
     border-style: none;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
-      border-bottom-left-radius: $window_radius+1;
-      border-bottom-right-radius: $window_radius+1;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     .dialog-action-area button {
@@ -3762,12 +3762,12 @@ messagedialog { // Message Dialog styling
 
       &:first-child {
         border-left-style: none;
-        border-bottom-left-radius: $button_radius + 2;
-        -gtk-outline-bottom-left-radius: $button_radius + 2;
+        border-bottom-left-radius: 0;
+        -gtk-outline-bottom-left-radius: 0;
       }
       &:last-child {
-        border-bottom-right-radius: $button_radius + 2;
-        -gtk-outline-bottom-right-radius: $button_radius + 2;
+        border-bottom-right-radius: 0;
+        -gtk-outline-bottom-right-radius: 0;
       }
     }
   }
@@ -4313,7 +4313,7 @@ decoration {
   $_wm_border: if($variant=='light', transparentize(black, 0.77), transparentize($borders_color, 0.1));
   $_wm_border_backdrop: if($variant=='light', transparentize(black, 0.82), transparentize($borders_color, 0.1));
 
-  box-shadow: 0 4px 5px 2px transparentize(black, 0.66);
+  box-shadow: 0 4px 10px 4px transparentize(black, 0.66);
               //0 0 0 1px $_wm_border; //doing borders with box-shadow
 
   // FIXME rationalize shadows
@@ -4326,7 +4326,7 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: 0 4px 5px 2px transparent,
+    box-shadow: 0 4px 10px 4px transparent,
                 0 1px 2px 1px transparentize(black, 0.8);
                 //0 0 0 1px $_wm_border_backdrop;
   }
@@ -4345,8 +4345,6 @@ decoration {
   .tiled & { border: 1px solid transparentize(black, 0.8); } // custom style: border between tiled windows
 
   .popup & { box-shadow: none; }
-
-  //.csd & { background-color: black; } // transparent makes gtk3 leak light on the corners #2537
 
   // server-side decorations as used by mutter
   //.ssd & { box-shadow: 0 0 0 1px $_wm_border; } //just doing borders, wm draws actual shadows
