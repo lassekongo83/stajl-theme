@@ -254,7 +254,7 @@
   //
   // insensitive button
   //
-    $_bg: if($c != $bg_color, mix($c, $base_color, 85%), $insensitive_bg_color);
+    $_bg: if($c != $bg_color, transparentize($c, 0.3), transparentize($c, 0.3));
 
     color: if($tc != $fg_color, mix($tc, $_bg, 50%), $insensitive_fg_color);
     border-color: if($c != $bg_color, _border_color($c), $insensitive_borders_color);
@@ -292,8 +292,8 @@
 
     color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
     //border-color: if($c != $bg_color, $_bc, $backdrop_borders_color);
-    //$button_fill: image($_bg) !global;
-    //background-image: $button_fill;
+    $button_fill: image($_bg) !global;
+    background-image: $button_fill;
     text-shadow: none;
     -gtk-icon-shadow: none;
     @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
@@ -318,8 +318,8 @@
   // backdrop insensitive button
   //
 
-    $_bg: if($c != $bg_color, mix($c, $base_color, 85%), $insensitive_bg_color);
-    $_bc: if($variant == 'light', $_bg,_border_color($c));
+    $_bg: transparentize($c, 0.5);
+    $_bc: transparentize(black, 0.9);
 
     color: if($c != $bg_color, mix($tc, $_bg, 35%), $backdrop_insensitive_color);
     border-color: if($c != $bg_color, $_bc, $backdrop_borders_color);

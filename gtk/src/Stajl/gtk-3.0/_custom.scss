@@ -95,7 +95,7 @@
 $_button_bg_color: lighten($alt_headerbar_bg, 7.5%) !global;
 $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
 
-%alt_titlebar { // TODO: selection-mode titlebar
+%alt_titlebar {
   color: $alt_headerbar_fg;
   text-shadow: none;
   &:backdrop {
@@ -136,7 +136,7 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   .path-bar button {
     text-shadow: none;
     &:backdrop {
-      color: $alt_headerbar_backdrop_fg;
+      @include button(backdrop, $_button_bg_color, $alt_headerbar_backdrop_fg);
       text-shadow: none;
     }
     @include button(normal, $_button_bg_color, $alt_headerbar_fg);
@@ -151,17 +151,133 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
       @include button(active, $_button_bg_color, $alt_headerbar_fg);
       border-color: transparentize(black, 0.6);
     }
-    &:disabled, &:backdrop:disabled {
-      @include button(insensitive, $_button_bg_color, $alt_headerbar_fg);
+    &:disabled {
+      @include button(insensitive, $_button_bg_color, $alt_headerbar_backdrop_fg);
+      &:backdrop {
+        @include button(backdrop-insensitive, $_button_bg_color, $alt_headerbar_backdrop_fg);
+      }
     }
   }
 
   separator {
     background: image(lighten($_button_border_color, 5%));
   }
-  // TODO: Checkbuttons
+  // TODO: Checkbuttons and scales
   switch {
     slider { background-color: transparentize(white, 0.5); }
+  }
+
+  // Suggested and Destructive Action buttons
+  @each $b_type, $b_color in (suggested-action, $suggested_bg_color),
+                             (destructive-action, $destructive_color) {
+    &.#{$b_type} {
+      @include button(normal, $b_color, white);
+      border-color: $b_color;
+
+      &.flat {
+        @include button(undecorated);
+        color: $b_color;
+      }
+
+      &:hover {
+        @include button(hover, $b_color, white);
+        border-color: $b_color;
+      }
+
+      &:active,
+      &:checked {
+        @include button(active, $b_color, white);
+        @if $alt_header == 'true' {
+          border-color: darken($suggested_bg_color, 15%);
+        }
+      }
+
+      &, &:hover, &:focus:active { outline-color: $selected_bg_color; }
+
+      &:backdrop,
+      &.flat:backdrop {
+        @include button(backdrop, $b_color, white);
+
+        &:active,
+        &:checked {
+          @include button(backdrop-active, $b_color, white);
+        }
+
+        &:disabled {
+          @include button(backdrop-insensitive, if($variant=='light', darken($alt_headerbar_bg, 14%), $alt_headerbar_bg), $alt_headerbar_backdrop_fg);
+          border-color: darken($alt_headerbar_bg, 3%);
+
+          &:active,
+          &:checked {
+            @include button(backdrop-insensitive-active, $b_color, white);
+          }
+        }
+      }
+
+      &.flat {
+        &:backdrop,
+        &:disabled,
+        &:backdrop:disabled {
+          @include button(undecorated);
+          color: transparentize($b_color, 0.2);
+        }
+      }
+
+      &:disabled {
+        @include button(insensitive, if($variant== "light", darken($alt_headerbar_bg, 15%), $alt_headerbar_bg), $alt_headerbar_fg);
+        border-color: darken($alt_headerbar_bg, 5%);
+        background-image: image(lighten($alt_headerbar_bg, 2%));
+
+        &:active,
+        &:checked {
+          @include button(insensitive-active, $b_color, white);
+        }
+      }
+
+      .osd & {
+        @include button(osd, $b_color);
+
+        &:hover {
+          @include button(osd-hover, $b_color);
+        }
+
+        &:active,
+        &:checked {
+          &:backdrop,
+          & { @include button(osd-active, $b_color); }
+        }
+
+        &:disabled {
+          &:backdrop, & { @include button(osd-insensitive, $b_color); }
+        }
+
+        &:backdrop {
+          @include button(osd-backdrop, $b_color);
+        }
+      }
+    }
+  }
+
+  .selection-menu {
+    &:backdrop,
+    & {
+      border-color: transparentize($suggested_bg_color, 1);
+      background-color: transparentize($suggested_bg_color, 1);
+      background-image: none;
+      box-shadow: none;
+      min-height: 20px;
+      padding: $_sel_menu_pad;
+
+      arrow {
+        -GtkArrow-arrow-scaling: 1;
+      }
+
+      .arrow {
+        -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+        color: transparentize($selected_fg_color, 0.5);
+        -gtk-icon-shadow: none;
+      }
+    }
   }
 }
 
@@ -555,8 +671,6 @@ XfdesktopIconView.view {
   }
 }
 
-// Application specific fixes should be avoided as much as possible! In some cases they are unavoidable.
-
 // Caja
 .caja-desktop { @extend .nautilus-desktop.nautilus-canvas-item; }
 .caja-notebook { border-top: 1px solid $borders_color; }
@@ -584,23 +698,9 @@ XfdesktopIconView.view {
     }
   }
 
-  // sidebar
-  //.sidebar {
-  //  box-shadow: inset -1px 0 transparentize($borders_color, 0.8), inset -2px 0 transparentize($borders_color, 0.9);
-  //}
-
   // Without this nautilus iconview grabs the bg_color
   notebook,
   notebook > stack:not(:only-child) searchbar { @extend %view; }
-
-  // pathbar
-  //.nautilus-path-bar button {
-  //  @include button(undecorated);
-  //  &:hover, &:last-child {
-  //    box-shadow: 0 3px $selected_bg_color;
-  //    border-radius: 0;
-  //  }
-  //}
 }
 
 // Desktop icons FIXME: Remove legacy nautilus stuff after Ubuntu 18.04 LTS ends support
