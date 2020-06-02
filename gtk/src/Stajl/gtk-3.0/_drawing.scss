@@ -196,8 +196,8 @@
     outline-color: transparentize($tc, 0.7);
     border-color: if($c != $bg_color, _border_color($c), transparentize(black, 0.86));
     border-bottom-color: if($c != $bg_color, _border_color($c, true), transparentize(black, 0.66));
-    $button_fill: if($variant == 'light', linear-gradient(to top, $c, lighten($c,6%)),
-                                          linear-gradient(to top, lighten($c,6%), lighten($c,10%))) !global;
+    $button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,2%), lighten($c,6%)),
+                                          linear-gradient(to top, lighten($c,8%), lighten($c,12%))) !global;
     background-image: $button_fill;
     //@include _button_text_shadow($tc, $c);
     @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
@@ -287,13 +287,29 @@
   //
   // backdrop button
   //
-    $_bg: if($c != $bg_color, $c, $backdrop_bg_color);
     $_bc: if($variant == 'light', $c, _border_color($c));
 
-    color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
     //border-color: if($c != $bg_color, $_bc, $backdrop_borders_color);
-    $button_fill: image($_bg) !global;
-    background-image: $button_fill;
+    @if $variant == 'light' {
+      $_bg: if($c != $bg_color, lighten($c, 4%), lighten($backdrop_bg_color, 4%));
+      $button_fill: image($_bg) !global;
+      background-image: $button_fill;
+      color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
+      &:hover {
+        background-image: image(lighten($c, 6%));
+        border-color: transparentize(black, 0.76);
+      }
+    }
+    @else {
+      $_bg: if($c != $bg_color, lighten($c, 8%), lighten($backdrop_bg_color, 8%));
+      $button_fill: image($_bg) !global;
+      background-image: $button_fill;
+      color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
+      &:hover {
+        background-image: image(lighten($c, 10%));
+        border-color: transparentize(black, 0.3);
+      }
+    }
     text-shadow: none;
     -gtk-icon-shadow: none;
     @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
@@ -303,11 +319,16 @@
   //
   // backdrop pushed button
   //
-    $_bg: if($variant == 'light', darken(mix($c, $base_color, 85%), 8%), darken(mix($c, $base_color, 85%), 4%));
+    $_bg: if($variant == 'light', darken($c, 8%), darken($c, 4%));
     $_bc: if($variant == 'light', $_bg ,_border_color($c));
 
     color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
-    border-color: if($c != $bg_color, $_bc, $backdrop_borders_color);
+    @if $variant == 'light' {
+      border-color: if($c != $bg_color, $_bc, $backdrop_borders_color);
+    }
+    @else {
+      border-color: transparentize(black, 0.6);
+    }
     $button_fill: image($_bg) !global;
     background-image: $button_fill;
     @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
@@ -571,14 +592,15 @@
 
   @if $t==normal  {
     background-clip: if($checked, border-box, padding-box);
-    background-image: linear-gradient(to bottom, $c, $c);
+    background-image: image($c);
     border-color: $_border_color;
     box-shadow: 0 1px transparentize(black, 0.95);
     color: $tc;
   }
 
   @if $t==hover {
-    background-image: if($c == white, image(darken($c, 5%)), linear-gradient(to bottom, lighten($c, 6%), lighten($c, 6%)));
+    background-image: if($c == white, image(darken($c, 5%)), image(lighten($c, 6%)));
+    border-color: darken($_border_color, 6%);
   }
 
   @if $t==active {
@@ -588,10 +610,12 @@
   @if $t==insensitive {
     box-shadow: none;
     color: transparentize($tc, 0.3);
+    background-image: image(desaturate(transparentize($c, 0.6), 100%));
+    border-color: desaturate(transparentize($c, 0.6), 100%);
   }
 
   @if $t==backdrop {
-    background-image: image($c);
+    background-image: image(transparentize($c, 0.2));
     box-shadow: none;
     color: $tc;
   }
@@ -599,5 +623,7 @@
   @if $t==backdrop-insensitive {
     box-shadow: none;
     color: transparentize($tc, 0.3);
+    background-image: image(desaturate(transparentize($c, 0.6), 100%));
+    border-color: desaturate(transparentize($c, 0.6), 100%);
   }
 }

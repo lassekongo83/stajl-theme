@@ -1026,6 +1026,7 @@ toolbar.inline-toolbar toolbutton {
 // .linked assumes Box, which reverses nodes in RTL, so 1st child is always left
 %linked {
   &:checked { @include button(active); } // FIXME: Otherwise it's not respecting the active state properly. Figure out why.
+  &:backdrop:checked { @include button(backdrop-active); }
   @extend %linked_middle;
 
   &:first-child { @extend %linked_left; }
@@ -2849,7 +2850,7 @@ radio {
 
   & {
     // for unchecked
-    $_c: if($variant=='light', white, $bg_color);
+    $_c: if($variant=='light', white, lighten($base_color, 4%));
 
     @each $state, $t in ("", "normal"),
                         (":hover", "hover"),
