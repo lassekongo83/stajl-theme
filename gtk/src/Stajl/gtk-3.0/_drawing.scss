@@ -166,7 +166,7 @@
   }
 }
 
-@mixin button($t, $c:$bg_color, $tc:$fg_color, $edge: none) {
+@mixin button($t, $c:if($variant == 'light', $bg_color, $base_color), $tc:$fg_color, $edge: none) {
 //
 // Button drawing function
 //
@@ -197,7 +197,7 @@
     border-color: if($c != $bg_color, _border_color($c), transparentize(black, 0.86));
     border-bottom-color: if($c != $bg_color, _border_color($c, true), transparentize(black, 0.66));
     $button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,2%), lighten($c,6%)),
-                                          linear-gradient(to top, lighten($c,8%), lighten($c,12%))) !global;
+                                          linear-gradient(to top, lighten($c,7.5%), lighten($c,12.5%))) !global;
     background-image: $button_fill;
     //@include _button_text_shadow($tc, $c);
     @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
@@ -610,8 +610,8 @@
   @if $t==insensitive {
     box-shadow: none;
     color: transparentize($tc, 0.3);
-    background-image: image(desaturate(transparentize($c, 0.6), 100%));
-    border-color: desaturate(transparentize($c, 0.6), 100%);
+    background-image: if($variant == 'light', image(desaturate(lighten($c, 20%), 100%)), image(desaturate(darken($c, 20%), 100%)));
+    border-color: if($variant == 'light', desaturate(lighten($c, 20%), 100%), desaturate(darken($c, 20%), 100%));
   }
 
   @if $t==backdrop {

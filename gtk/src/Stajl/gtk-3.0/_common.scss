@@ -2627,10 +2627,10 @@ scrollbar {
   transition: $shorter_duration $ease-out-quad;
 
   // scrollbar border
-  &.top { border-bottom: 1px solid $borders_color; }
-  &.bottom { border-top: 1px solid $borders_color; }
-  &.left { border-right: 1px solid $borders_color; }
-  &.right { border-left: 1px solid $borders_color; }
+  &.top { border-bottom: 1px solid transparent; }
+  &.bottom { border-top: 1px solid transparent; }
+  &.left { border-right: 1px solid transparent; }
+  &.right { border-left: 1px solid transparent; }
 
   // slider
   slider {
