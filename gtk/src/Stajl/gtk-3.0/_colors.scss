@@ -1,13 +1,15 @@
 // When color definition differs for dark and light variant
 // it gets @if ed depending on $variant
 
-$base_color: if($variant == 'light', #ffffff, #444446);
+@import 'theme_colors'; // 3rd party theme color palette
+
+$base_color: if($variant == 'light', $light_base, $dark_base);
 $text_color: if($variant == 'light', black, white);
-$bg_color: if($variant == 'light', #ececec, #373739);
-$fg_color: if($variant == 'light', #2e3436, #eeeeec);
+$bg_color: if($variant == 'light', $light_bg, $dark_bg);
+$fg_color: if($variant == 'light', $light_fg, $dark_fg);
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', #0277bd, #2196f3);
+$selected_bg_color: $theme_blue;
 $selected_borders_color: if($variant== 'light', darken($selected_bg_color, 15%), darken($selected_bg_color, 30%));
 $borders_color: if($variant == 'light', darken($bg_color, 18%), darken($bg_color, 4%));
 $alt_borders_color: if($variant == 'light', darken($bg_color, 30%), darken($bg_color, 8%));
@@ -15,8 +17,8 @@ $borders_edge: if($variant == 'light' and $alt_header == 'false', transparentize
 $link_color: if($variant == 'light', darken($selected_bg_color, 10%), lighten($selected_bg_color, 20%));
 $link_visited_color: if($variant == 'light', darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%));
 $top_hilight: $borders_edge;
-$dark_fill: if($variant == 'light', mix($borders_color, $bg_color, 70%), darken($bg_color, 4%));
-$headerbar_color: if($variant == 'light', darken($bg_color, 6%), $base_color);
+$dark_fill: if($variant == 'light', $light_secondary_bg, $dark_secondary_bg);
+$headerbar_color: if($variant == 'light', $light_header, $dark_header);
 $menu_color: if($variant == 'light', $base_color, mix($bg_color, $base_color, 20%));
 $popover_bg_color: $bg_color;
 $popover_hover_color: lighten($bg_color, 5%);
@@ -26,14 +28,14 @@ $scrollbar_slider_color: mix($fg_color, $bg_color, 60%);
 $scrollbar_slider_hover_color: mix($fg_color, $bg_color, 80%);
 $scrollbar_slider_active_color: if($variant=='light', darken($selected_bg_color, 10%), lighten($selected_bg_color, 10%));
 
-$warning_color: #f57900;
-$error_color: #cc0000;
-$success_color: if($variant == 'light', #33d17a, darken(#33d17a, 10%));
-$destructive_color: if($variant == 'light', #e01b24, darken(#e01b24, 10%));
+$warning_color: $theme_yellow;
+$error_color: $theme_red;
+$success_color: $theme_green;
+$destructive_color: $theme_red;
 
-$osd_fg_color: #eeeeec;
+$osd_fg_color: $dark_fg;
 $osd_text_color: white;
-$osd_bg_color: if($variant == 'light', transparentize(darken(desaturate(#3d3846, 100%), 4%),0.3), transparentize(darken(desaturate(#3d3846, 100%), 10%),0.3));
+$osd_bg_color: if($variant == 'light', transparentize(darken(desaturate($dark_bg, 100%), 4%),0.3), transparentize(darken(desaturate($dark_bg, 100%), 10%),0.3));
 $osd_insensitive_bg_color: transparentize(mix($osd_fg_color, opacify($osd_bg_color, 1), 10%), 0.5);
 $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
 $osd_borders_color: transparentize(black, 0.3);
@@ -78,10 +80,10 @@ $checkradio_borders_color: if($variant == 'light', darken($checkradio_bg_color,2
 
 //custom theme colors
 $close_button: transparent;
-$close_button_hover: #c75050;
+$close_button_hover: $theme_red;
 $close_button_backdrop: $close_button;
 $max_min_hover: $selected_bg_color;
-$alt_headerbar_bg: #444446;
-$alt_headerbar_fg: #eeeeec;
+$alt_headerbar_bg: $dark_header;
+$alt_headerbar_fg: $dark_fg;
 $alt_headerbar_border: darken($alt_headerbar_bg, 8%);
 $alt_headerbar_backdrop_fg: mix($alt_headerbar_fg, $alt_headerbar_bg, 70%);

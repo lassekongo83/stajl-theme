@@ -16,6 +16,7 @@ gtk3_scss_dependencies = [
   '_colors.scss',
   '_common.scss',
   '_drawing.scss',
+  '_theme_colors.scss',
 ]
 
 gtk3_asset_dir = join_paths(gtk3_dir, 'assets')

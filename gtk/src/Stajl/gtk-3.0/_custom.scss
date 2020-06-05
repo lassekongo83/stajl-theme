@@ -319,7 +319,7 @@ $_button_border_color: darken($alt_headerbar_bg, 10%) !global;
   transition: all $duration $ease-out;
 
   &:checked {
-    background-color: $checkradio_bg_color;
+    background-color: $success_color;
   }
 
   &:disabled {

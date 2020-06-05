@@ -3111,14 +3111,19 @@ scale {
   }
 
   slider {
-    @include button(normal-alt, $edge: $shadow_color);
+    //@include button(normal-alt, $edge: $shadow_color);
 
-    border: 1px solid darken($alt_borders_color, 3%);
+    background-color: if($variant == 'light', white, lighten($base_color, 12%));
+    border: 1px solid transparent; // border needed here, or trough highlight color won't work
+    box-shadow: 0 1px 2px transparentize(black, 0.66); // inset shadows will sadly not look good due to the border that won't be transparent
     border-radius: 100%;
     transition: $button_transition;
     transition-property: background, border, box-shadow;
 
-    &:hover { @include button(hover-alt, $edge: $shadow_color); }
+    &:hover {
+      background-color: if($variant == 'light', white, lighten($base_color, 16%));
+      box-shadow: 0 0 0 4px transparentize($selected_bg_color, 0.74);
+    }
 
     &:active { border-color: $progress_border_color; }
 
