@@ -194,10 +194,10 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: if($c != $bg_color, _border_color($c), transparentize(black, 0.86));
-    border-bottom-color: if($c != $bg_color, _border_color($c, true), transparentize(black, 0.66));
+    border-color: if($c != $bg_color, _border_color(transparentize(black, 0.8)), transparentize(black, 0.86));
+    border-bottom-color: if($c != $bg_color, _border_color(transparentize(black, 0.5), true), transparentize(black, 0.66));
     $button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,2%), lighten($c,6%)),
-                                          linear-gradient(to top, lighten($c,7.5%), lighten($c,12.5%))) !global;
+                                          linear-gradient(to top, lighten($c,2%), lighten($c,6%))) !global;
     background-image: $button_fill;
     //@include _button_text_shadow($tc, $c);
     @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
@@ -209,10 +209,10 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: if($c != $bg_color, _border_color($c), transparentize(black, 0.76));
-    border-bottom-color: if($c != $bg_color, _border_color($c, true), transparentize(black, 0.56));
+    border-color: if($c != $bg_color, _border_color(transparentize(black, 0.7)), transparentize(black, 0.76));
+    border-bottom-color: if($c != $bg_color, _border_color(transparentize(black, 0.4), true), transparentize(black, 0.56));
     $button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,4%), lighten($c,10%)),
-                                          linear-gradient(to top, lighten($c,10%), lighten($c,14%))) !global;
+                                          linear-gradient(to top, lighten($c,4%), lighten($c,10%))) !global;
     background-image: $button_fill;
   }
 
@@ -236,8 +236,8 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: if($c != $bg_color, _border_color($c), transparentize(black, 0.6));
-    $button_fill: if($variant == 'light', image(darken($c, 14%)), image(darken($c, 4%))) !global;
+    border-color: if($c != $bg_color, _border_color(darken($c, 4%)), transparentize(black, 0.6));
+    $button_fill: if($variant == 'light', image(darken($c, 14%)), image(darken($c, 8%))) !global;
     background-image: $button_fill;
     @include _shadows(inset 0 1px transparentize($_hilight_color, 1), inset 0 0 0 1px transparentize(black, 0.94), $_button_edge);
 

@@ -85,5 +85,5 @@ $close_button_backdrop: $close_button;
 $max_min_hover: $selected_bg_color;
 $alt_headerbar_bg: $dark_header;
 $alt_headerbar_fg: $dark_fg;
-$alt_headerbar_border: darken($alt_headerbar_bg, 8%);
+$alt_headerbar_border: $dark_bg;
 $alt_headerbar_backdrop_fg: mix($alt_headerbar_fg, $alt_headerbar_bg, 70%);

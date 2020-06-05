@@ -1546,7 +1546,7 @@ searchbar > revealer > box {
 headerbar {
   padding: 0 4px;
   min-height: $_headerbar_height;
-  border-width: if($variant == 'light', 0 0 1px, 0);
+  border-width: 0 0 1px;
   border-style: solid;
   border-color: if($variant == 'light', $borders_color, $alt_borders_color);
   border-radius: 0;

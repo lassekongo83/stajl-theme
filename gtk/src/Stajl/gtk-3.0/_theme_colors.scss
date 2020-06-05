@@ -1,10 +1,10 @@
 // Colors used by the 3rd party theme
 
 // dark colors
-$dark_bg: #373739;
+$dark_bg: #38383a;
 $dark_secondary_bg: #2e2e30;
-$dark_base: #444446;
-$dark_header: if($alt_header == 'false', lighten($dark_bg, 4%), $dark_base);
+$dark_base: #424244;
+$dark_header: if($alt_header == 'false', #323234, $dark_base);
 $dark_fg: #eeeeec;
 
 // light colors
