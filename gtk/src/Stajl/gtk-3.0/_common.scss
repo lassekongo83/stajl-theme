@@ -2345,11 +2345,11 @@ notebook {
 
     tabs { margin: -1px; }
 
-    &.top, &.bottom, &.left, &.right {
-      & > tabs > tab {
+    //&.top, &.bottom, &.left, &.right {
+      //& > tabs > tab {
         //&:checked { background-color: if($variant=='light', $bg_color, $base_color); }
-      }
-    }
+      //}
+    //}
 
     &.top {
       border-bottom-style: solid;
@@ -2476,13 +2476,13 @@ notebook {
         color: mix($insensitive_fg_color, $fg_color, 50%);
         background-color: if($variant == 'light', darken($dark_fill, 3%), lighten($dark_fill, 3%));
 
-        &.reorderable-page {
-          border-color: transparentize($borders_color, 0.7);
+        //&.reorderable-page {
+          //border-color: transparentize($borders_color, 0.7);
           //background-color: darken($dark_fill, 10%);
-          &:not(:checked) {
-            background-color: if($variant == 'light', darken($dark_fill, 3%), lighten($dark_fill, 1.5%));
-          }
-        }
+          //&:not(:checked) {
+            //background-color: if($variant == 'light', darken($dark_fill, 3%), lighten($dark_fill, 1.5%));
+          //}
+        //}
       }
 
       &:backdrop {
