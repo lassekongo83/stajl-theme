@@ -166,7 +166,7 @@
   }
 }
 
-@mixin button($t, $c:if($variant == 'light', $bg_color, $base_color), $tc:$fg_color, $edge: none) {
+@mixin button($t, $c:if($variant == 'light', $bg_color, $bg_color), $tc:$fg_color, $edge: none) {
 //
 // Button drawing function
 //
@@ -301,7 +301,7 @@
       }
     }
     @else {
-      $_bg: if($c != $bg_color, lighten($c, 8%), lighten($backdrop_bg_color, 8%));
+      $_bg: if($c != $bg_color, lighten($c, 4%), lighten($backdrop_bg_color, 4%));
       $button_fill: image($_bg) !global;
       background-image: $button_fill;
       color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
@@ -312,7 +312,8 @@
     }
     text-shadow: none;
     -gtk-icon-shadow: none;
-    @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
+    //@include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
+    @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
   }
 
   @else if $t==backdrop-active {
