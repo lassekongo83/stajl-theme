@@ -17,7 +17,7 @@ $light_header: #dedede;
 $light_fg: #2e3436;
 
 // more colors
-$theme_red: if($variant == 'light', #c62828, #d32f2f); // error color and close button
-$theme_yellow: if($variant == 'light', #f9a825, #fbc02d); // warning color
-$theme_blue: if($variant == 'light', #0277bd, #2196f3); // selection color
-$theme_green: if($variant == 'light', #558b2f, #689f38); // success color
+$theme_red: if($variant == 'light', #c62828, #ef5350); // error color and close button
+$theme_yellow: if($variant == 'light', #f9a825, #ffee58); // warning color
+$theme_blue: if($variant == 'light', #0277bd, #3ea0cd); // selection color
+$theme_green: if($variant == 'light', #2e7d32, #66bb6a); // success color

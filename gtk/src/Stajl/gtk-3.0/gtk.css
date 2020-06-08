@@ -1297,9 +1297,9 @@ levelbar block.high, levelbar block:not(.empty) { border-color: #013758; backgro
 
 levelbar block.high:backdrop, levelbar block:not(.empty):backdrop { border-color: #0277bd; }
 
-levelbar block.full { border-color: #263f15; background-color: #558b2f; }
+levelbar block.full { border-color: #133214; background-color: #2e7d32; }
 
-levelbar block.full:backdrop { border-color: #558b2f; }
+levelbar block.full:backdrop { border-color: #2e7d32; }
 
 levelbar block.empty { background-color: transparent; border-color: rgba(46, 52, 54, 0.2); }
 
@@ -1745,7 +1745,7 @@ popover.emoji-completion .emoji:hover { background: whitesmoke; }
 @define-color unfocused_borders #cbcbcb;
 @define-color warning_color #f9a825;
 @define-color error_color #c62828;
-@define-color success_color #558b2f;
+@define-color success_color #2e7d32;
 @define-color wm_title shade(#2e3436, 1.8);
 @define-color wm_unfocused_title #787c7d;
 @define-color wm_highlight rgba(255, 255, 255, 0.3);
@@ -1810,7 +1810,7 @@ headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minim
 
 switch { margin: 4px 0; padding: 0; border-radius: 99px; border-width: 0; background-color: rgba(0, 0, 0, 0.38); background-clip: padding-box; transition: all 75ms cubic-bezier(0, 0, 0.2, 1); }
 
-switch:checked { background-color: #558b2f; }
+switch:checked { background-color: #2e7d32; }
 
 switch:disabled { opacity: 0.38; }
 
