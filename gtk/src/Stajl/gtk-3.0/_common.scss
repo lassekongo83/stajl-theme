@@ -1546,9 +1546,9 @@ searchbar > revealer > box {
 headerbar {
   padding: 0 4px;
   min-height: $_headerbar_height;
-  border-width: if($alt_header == 'false', 0 0 1px, 0);
+  border-width: 0; //0 0 1px;
   border-style: solid;
-  border-color: if($variant == 'light', $borders_color, $alt_borders_color);
+  border-color: $borders_color;
   border-radius: 0;
 
   @include headerbar_fill;
@@ -2487,6 +2487,7 @@ notebook {
 
       &:backdrop {
         color: mix($backdrop_fg_color, $backdrop_bg_color, 60%);
+        &:hover { color: mix($backdrop_fg_color, $backdrop_bg_color, 80%); }
 
         &.reorderable-page {
           border-color: transparent;
@@ -3782,7 +3783,7 @@ filechooserbutton:drop(active) {
 //---------//
 .sidebar {
   border-style: none;
-  background-color: mix($bg_color, $base_color, 50%);
+  background-color: if($variant == 'light', mix($bg_color, $base_color, 50%), $bg_color);
 
   &:not(separator) {
     @at-root %sidebar_left,

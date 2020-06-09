@@ -10,14 +10,17 @@ $dark_fg: #eeeeec;
 
 // light colors
 $light_bg: #e8e8e8;
-$light_secondary_bg: #cecece;
+$light_secondary_bg: #c8c8c8;
 $light_base: #fff;
-$light_border: darken($light_bg, 14%);
-$light_header: #dedede;
+$light_border: #bababa;
+$light_header: #e0e0e0;
 $light_fg: #2e3436;
 
 // more colors
-$theme_red: if($variant == 'light', #c62828, #ef5350); // error color and close button
-$theme_yellow: if($variant == 'light', #f9a825, #ffee58); // warning color
-$theme_blue: if($variant == 'light', #0277bd, #3ea0cd); // selection color
-$theme_green: if($variant == 'light', #2e7d32, #66bb6a); // success color
+$theme_red: if($variant == 'light', #c94f4d, #d26d6b); // error color and close button
+$theme_yellow: if($variant == 'light', #deb608, #f7d02a); // warning color
+$theme_blue: if($variant == 'light', #387cf0, #5c94f3); // selection color
+$theme_green: if($variant == 'light', #58914a, #80b772); // success color
+// $theme_cyan: if($variant == 'light', #068f75, #08b594);
+// $theme_pink: if($variant == 'light', #f0387c, #f35c94);
+// $theme_orange: if($variant == 'light', #eb5b22, #f08358);

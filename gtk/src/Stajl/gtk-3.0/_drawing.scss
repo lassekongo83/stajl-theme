@@ -198,7 +198,7 @@
     border-bottom-color: if($c != $bg_color, _border_color(transparentize(black, 0.5), true), transparentize(black, 0.66));
     $button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,2%), lighten($c,6%)),
                                           linear-gradient(to top, lighten($c,2%), lighten($c,6%))) !global;
-    background-image: $button_fill;
+    background-image: image(lighten($c,5%)); //$button_fill;
     //@include _button_text_shadow($tc, $c);
     @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
   }
@@ -213,7 +213,7 @@
     border-bottom-color: if($c != $bg_color, _border_color(transparentize(black, 0.4), true), transparentize(black, 0.56));
     $button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,4%), lighten($c,10%)),
                                           linear-gradient(to top, lighten($c,4%), lighten($c,10%))) !global;
-    background-image: $button_fill;
+    background-image: image(lighten($c,7.5%)); //$button_fill;
   }
 
   @if $t==normal-alt {
@@ -312,8 +312,8 @@
     }
     text-shadow: none;
     -gtk-icon-shadow: none;
-    //@include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
-    @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
+    @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
+    //@include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
   }
 
   @else if $t==backdrop-active {
