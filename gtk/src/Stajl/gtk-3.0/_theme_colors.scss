@@ -1,19 +1,19 @@
 // Colors used by the 3rd party theme
 
 // dark colors
-$dark_bg: #34373a;
-$dark_secondary_bg: #282b2e;
-$dark_base: #3f4245;
-$dark_border: #232629;
-$dark_header: if($alt_header == 'false', #2c2f32, $dark_base);
+$dark_bg: #35393c;
+$dark_secondary_bg: #292c2e;
+$dark_base: #4d5358;
+$dark_border: #1d1f21;
+$dark_header: #41464a;
 $dark_fg: #eeeeec;
 
 // light colors
-$light_bg: #e8e8e8;
-$light_secondary_bg: #c8c8c8;
+$light_bg: #e6e8e8;
+$light_secondary_bg: #ccd0d0;
 $light_base: #fff;
-$light_border: #bababa;
-$light_header: #e0e0e0;
+$light_border: #bfc4c4;
+$light_header: #d9dcdc;
 $light_fg: #2e3436;
 
 // more colors

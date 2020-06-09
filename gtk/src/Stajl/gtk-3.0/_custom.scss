@@ -776,8 +776,10 @@ XfdesktopIconView.view {
 
 // gnome-tweaks
 .tweak-categories {
-  background-color: mix($bg_color, $base_color, 50%);
-  border-color: $borders_color;
+  &, &:backdrop {
+    background-color: if($variant == 'light', mix($bg_color, $base_color, 50%), $dark_secondary_bg);
+    border-color: if($variant == 'light', mix($bg_color, $base_color, 50%), $dark_secondary_bg);
+  }
 }
 
 list.tweak-categories separator {
