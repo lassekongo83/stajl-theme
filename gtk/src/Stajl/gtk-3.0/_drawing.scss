@@ -196,9 +196,10 @@
     outline-color: transparentize($tc, 0.7);
     border-color: if($c != $bg_color, _border_color(transparentize(black, 0.9)), transparentize(black, 0.9));
     border-bottom-color: if($c != $bg_color, _border_color(transparentize(black, 0.5), true), transparentize(black, 0.66));
-    $button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,2%), lighten($c,6%)),
-                                          linear-gradient(to top, lighten($c,2%), lighten($c,6%))) !global;
-    background-image: if($variant == 'light', image(lighten($c,5%)), image(lighten($c,8%))); //$button_fill;
+    //$button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,2%), lighten($c,6%)),
+    //                                      linear-gradient(to top, lighten($c,2%), lighten($c,6%))) !global;
+    $button_fill: if($variant == 'light', image(lighten($c,5%)), image(lighten($c,8%))) !global;
+    background-image: $button_fill;
     //@include _button_text_shadow($tc, $c);
     @include _shadows(inset 0 1px $_hilight_color, $_button_edge, $_button_shadow);
   }
@@ -211,9 +212,10 @@
     outline-color: transparentize($tc, 0.7);
     border-color: if($c != $bg_color, _border_color(transparentize(black, 0.7)), transparentize(black, 0.76));
     border-bottom-color: if($c != $bg_color, _border_color(transparentize(black, 0.4), true), transparentize(black, 0.56));
-    $button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,4%), lighten($c,10%)),
-                                          linear-gradient(to top, lighten($c,4%), lighten($c,10%))) !global;
-    background-image: if($variant == 'light', image(lighten($c,7%)), image(lighten($c,9%))); //$button_fill;
+    //$button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,4%), lighten($c,10%)),
+    //                                      linear-gradient(to top, lighten($c,4%), lighten($c,10%))) !global;
+    $button_fill: if($variant == 'light', image(lighten($c,7%)), image(lighten($c,9%))) !global;
+    background-image: $button_fill;
   }
 
   @if $t==normal-alt {
