@@ -6,7 +6,7 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant=='dark', '-dark', '');
 $backdrop_transition: none;
 $button_transition: all 100ms $ease-out-quad;
-$button_radius: 3px;
+$button_radius: 2px;
 $menu_radius: 0;
 $window_radius: 0;
 $popover_radius: $button_radius + 4;
@@ -124,7 +124,7 @@ $ease-in-out: cubic-bezier(.4, 0, .6, 1);
 %view {
   color: $text_color;
   background-color: $base_color;
-  &:hover, &:backdrop:hover { background-color: darken($base_color, 6%); } // Custom style
+  &:hover, &:backdrop:hover { background-color: gtkalpha(currentColor, .06); } // Custom style
 
   &:backdrop {
     color: $backdrop_text_color;
@@ -2479,7 +2479,7 @@ notebook {
 
       &:hover {
         color: mix($insensitive_fg_color, $fg_color, 50%);
-        background-color: if($variant == 'light', darken($dark_fill, 3%), lighten($dark_fill, 3%));
+        background-color: gtkalpha(currentColor, .06);
 
         //&.reorderable-page {
           //border-color: transparentize($borders_color, 0.7);
@@ -3627,7 +3627,7 @@ row {
   &.activatable {
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
 
-    &:hover { background-color: if(variant == light, transparentize($fg_color, 0.9), transparentize($fg_color, 0.95)); }
+    &:hover { background-color: gtkalpha(currentColor, .06); }
 
     &:active { box-shadow: inset 0 2px 2px -2px transparentize(black, 0.8); }
 
