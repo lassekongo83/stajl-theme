@@ -4,11 +4,14 @@
 // Title buttons //
 //---------------//
 %titlebutton {
-  min-width: 24px;
-  min-height: 24px;
-  padding: 0;
-  margin: 2px;
-  border-radius: 1.5px;
+  //min-width: 24px;
+  //min-height: 24px;
+  //padding: 0;
+  //margin: 2px;
+  border-radius: 0; //1.5px;
+  min-width: 38px;
+  min-height: $_headerbar_height;
+  margin: 0 -4px;
 }
 
 %titlebuttons {
@@ -81,10 +84,14 @@
 
 .ssd .titlebar {
   border-width: 0;
-  padding: 2px 4px;
+  padding: 0px 4px;
+  //max-height: $csd_title_height;
 
-  &.default-decoration button.titlebutton {
-    @extend %titlebutton;
+  &.default-decoration button.titlebutton { // Sadly doesn't work very good in Firefox
+    //@extend %titlebutton;
+    min-height: $csd_title_height;
+    min-width: 38px;
+    margin: 0 -4px;
   }
 }
 

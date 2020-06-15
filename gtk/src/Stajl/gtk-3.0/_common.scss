@@ -12,11 +12,11 @@ $window_radius: 0;
 $popover_radius: $button_radius + 4;
 
 // Optional compact sizes for buttons, headerbar and headerbar widgets
-$_sizevariant: 'default'; //compact otherwise
-$_headerbar_height: if($_sizevariant=='default', 38px, 34px);
+$_sizevariant: 'compact'; //compact otherwise
+$_headerbar_height: if($_sizevariant=='default', 34px, 32px);
 $_entry_height: if($_sizevariant=='default', 26px, 24px);
 $_btn_pad: if($_sizevariant=='default', 4px 4px, 2px 3px);
-$_hb_btn_pad: if($_sizevariant=='default', 4px, 3px);
+$_hb_btn_pad: if($_sizevariant=='default', 4px, 4px);
 $_img_btn_pad: if($_sizevariant=='default', 4px, 2px);
 $_sel_menu_pad: if($_sizevariant=='default', 6px 10px, 4px 10px);
 $_circ_btn_pad: if($_sizevariant=='default', 4px, 2px);
@@ -25,6 +25,7 @@ $_switch_margin: if($_sizevariant=='default', 4px, 4px); // custom theme note: S
                                                          // Alternatively use the compact sizevariant.
 
 // custom variables
+$csd_title_height: 24px;
 // duration
 $shortest_duration: 50ms;
 $shorter_duration: 100ms;
@@ -1730,12 +1731,12 @@ headerbar {
   }
 
   &.default-decoration {
-    min-height: 28px;
-    padding: 4px;
+    min-height: $csd_title_height;
+    padding: 0 4px;
 
     button.titlebutton {
-      min-height: 24px;
-      min-width: 24px;
+      min-height: $csd_title_height;
+      min-width: 38px;
       margin: 0;
       padding: 0;
     }
