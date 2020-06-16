@@ -1750,7 +1750,7 @@ popover.emoji-completion .emoji:hover { background: #41464a; }
 @define-color wm_button_active_color_b shade(#35393c, 0.89);
 @define-color wm_button_active_color_c shade(#35393c, 0.9);
 @define-color content_view_bg #4d5358;
-headerbar button.titlebutton, .titlebar button.titlebutton { border-radius: 0; min-width: 38px; min-height: 32px; margin: 0 -4px; }
+headerbar button.titlebutton, .titlebar button.titlebutton { border-radius: 0; min-width: 38px; min-height: 32px; margin: 0 -4px; padding: 2px 0; }
 
 headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize { color: transparent; background-color: transparent; background-position: center; background-repeat: no-repeat; border-width: 0; box-shadow: none; transition-property: background-color; }
 
