@@ -3,8 +3,8 @@
 // dark colors
 $dark_bg: #41464a;
 $dark_secondary_bg: #292c2e;
-$dark_base: #4d5358;
-$dark_border: #1d1f21;
+$dark_base: #1d1f21; //#4d5358;
+$dark_border: transparentize(black, 0.6);
 $dark_header: if($variant == 'dark', #35393c, $dark_base);
 $dark_fg: #eeeeec;
 
@@ -17,10 +17,9 @@ $light_header: #d9dcdc;
 $light_fg: #2e3436;
 
 // more colors
-$theme_red: if($variant == 'light', #c94f4d, #d26d6b); // error color and close button
-$theme_yellow: if($variant == 'light', #deb608, #f7d02a); // warning color
-$theme_blue: if($variant == 'light', #387cf0, #5c94f3); // selection color
-$theme_green: if($variant == 'light', #58914a, #80b772); // success color
-// $theme_cyan: if($variant == 'light', #068f75, #08b594);
-// $theme_pink: if($variant == 'light', #f0387c, #f35c94);
-// $theme_orange: if($variant == 'light', #eb5b22, #f08358);
+$theme_red: if($variant == 'light', #ca474d, #ec5f67); // error color and close button
+$theme_yellow: if($variant == 'light', #dbac4b, #fac863); // warning color
+$theme_blue: if($variant == 'light', #4c73b2, #6699cc); // selection color
+$theme_green: if($variant == 'light', #73a56f, #99c794); // success color
+// $theme_cyan: if($variant == 'light', #529d9d, #5fb3b3);
+// $theme_magneta: if($variant == 'light', #a97aa9, #c594c5);

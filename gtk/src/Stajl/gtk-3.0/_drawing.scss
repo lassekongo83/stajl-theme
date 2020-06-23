@@ -194,7 +194,7 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: if($c != $bg_color, _border_color(transparentize(black, 0.9)), transparentize(black, 0.9));
+    border-color: if($c != $bg_color, _border_color(transparentize(black, 0.8)), transparentize(black, 0.8));
     border-bottom-color: if($c != $bg_color, _border_color(transparentize(black, 0.55), true), transparentize(black, 0.66));
     //$button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,2%), lighten($c,6%)),
     //                                      linear-gradient(to top, lighten($c,2%), lighten($c,6%))) !global;
@@ -210,7 +210,7 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: if($c != $bg_color, _border_color(transparentize(black, 0.7)), transparentize(black, 0.76));
+    border-color: if($c != $bg_color, _border_color(transparentize(black, 0.6)), transparentize(black, 0.6));
     border-bottom-color: if($c != $bg_color, _border_color(transparentize(black, 0.4), true), transparentize(black, 0.56));
     //$button_fill: if($variant == 'light', linear-gradient(to top, lighten($c,4%), lighten($c,10%)),
     //                                      linear-gradient(to top, lighten($c,4%), lighten($c,10%))) !global;
@@ -300,7 +300,7 @@
       color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
       &:hover {
         background-image: image(lighten($c, 6%));
-        border-color: transparentize(black, 0.76);
+        border-color: transparentize(black, 0.6);
       }
     }
     @else {

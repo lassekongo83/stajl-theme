@@ -14,9 +14,9 @@ $popover_radius: $button_radius + 4;
 // Optional compact sizes for buttons, headerbar and headerbar widgets
 $_sizevariant: 'compact'; //compact otherwise
 $_headerbar_height: if($_sizevariant=='default', 34px, 32px);
-$_entry_height: if($_sizevariant=='default', 26px, 24px);
-$_btn_pad: if($_sizevariant=='default', 4px 4px, 2px 3px);
-$_hb_btn_pad: if($_sizevariant=='default', 4px, 4px);
+$_entry_height: if($_sizevariant=='default', 28px, 24px);
+$_btn_pad: if($_sizevariant=='default', 4px 9px, 2px 6px);
+$_hb_btn_pad: if($_sizevariant=='default', 6px, 5px);
 $_img_btn_pad: if($_sizevariant=='default', 4px, 2px);
 $_sel_menu_pad: if($_sizevariant=='default', 6px 10px, 4px 10px);
 $_circ_btn_pad: if($_sizevariant=='default', 4px, 2px);
@@ -2968,7 +2968,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 %scale_trough {
   border: 1px solid $dark_fill;
   border-radius: $button_radius + 2;
-  background-color: $dark_fill;
+  background-color: if($variant == 'light', $dark_fill, $dark_border);
 
   &:disabled { background-color: $insensitive_bg_color; }
 
@@ -3101,7 +3101,7 @@ scale {
   slider {
     //@include button(normal-alt, $edge: $shadow_color);
 
-    background-color: if($variant == 'light', white, lighten($base_color, 12%));
+    background-color: if($variant == 'light', white, lighten($bg_color, 12%));
     border: 1px solid transparent; // border needed here, or trough highlight color won't work
     box-shadow: 0 1px 2px transparentize(black, 0.66); // inset shadows will sadly not look good due to the border that won't be transparent
     border-radius: 100%;
@@ -3109,7 +3109,7 @@ scale {
     transition-property: background, border, box-shadow;
 
     &:hover {
-      background-color: if($variant == 'light', white, lighten($base_color, 16%));
+      background-color: if($variant == 'light', white, lighten($bg_color, 16%));
       box-shadow: 0 0 0 4px transparentize($selected_bg_color, 0.74);
     }
 
