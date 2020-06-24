@@ -5,7 +5,7 @@ $dark_bg: #41464a;
 $dark_secondary_bg: #292c2e;
 $dark_base: #1d1f21; //#4d5358;
 $dark_border: transparentize(black, 0.6);
-$dark_header: if($variant == 'dark', #35393c, $dark_base);
+$dark_header: if($variant == 'dark', #35393c, #4d5358);
 $dark_fg: #eeeeec;
 
 // light colors
