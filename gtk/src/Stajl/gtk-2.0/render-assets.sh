@@ -4,9 +4,9 @@
 INKSCAPE="/usr/bin/inkscape" # comment this line and uncomment the above line if you're using a flatpak install of inkscape
 OPTIPNG="/usr/bin/optipng"
 
+INDEX="assets.txt"
 SRC_FILE="assets.svg"
 ASSETS_DIR="assets"
-INDEX="assets.txt"
 
 for i in `cat $INDEX`
 do 
@@ -17,9 +17,7 @@ else
     echo Rendering $ASSETS_DIR/$i.png
     $INKSCAPE --export-id=$i \
               --export-id-only \
-              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null #\
-              # remove the above --export-png and uncomment the line below if you're using inkscape 1.0 or newer
-              # --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null #\
+              --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null #\
     # && $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png 
 fi
 done
