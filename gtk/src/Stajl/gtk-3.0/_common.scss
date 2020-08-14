@@ -38,7 +38,6 @@ $ease-out: cubic-bezier(0, 0, .2, 1);
 $ease-in: cubic-bezier(.4, 0, 1, 1);
 $ease-in-out: cubic-bezier(.4, 0, .6, 1);
 
-// sass !global assignments won't be able to declare new variables in future versions
 $button_fill: null;
 
 * {
