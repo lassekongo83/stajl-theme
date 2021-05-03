@@ -25,7 +25,7 @@ $_switch_margin: if($_sizevariant=='default', 4px, 4px); // custom theme note: S
                                                          // Alternatively use the compact sizevariant.
 
 // custom variables
-$csd_title_height: 24px;
+$csd_title_height: 28px;
 // duration
 $shortest_duration: 50ms;
 $shorter_duration: 100ms;
@@ -4444,6 +4444,8 @@ cursor-handle {
   box-shadow: none;
   border-style: none;
 }
+
+// custom theme style: text-select marks removed for now to avoid the hassle of too many image assets
 
 .context-menu { font: initial; } // Decouple the font of context menus from their entry/textview
 
