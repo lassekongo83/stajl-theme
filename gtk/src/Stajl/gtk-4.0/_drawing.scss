@@ -443,9 +443,9 @@ $_default_button_c: lighten($bg_color,2%);
   box-shadow: none;              //
 }
 
-/***************************
- * Check and Radio buttons *
- ***************************/
+//-------------------------//
+// Check and Radio buttons //
+//-------------------------//
 
  @mixin check($t, $c:$checkradio_bg_color, $tc:$checkradio_fg_color, $checked: false) {
   // Check/Radio drawing function
