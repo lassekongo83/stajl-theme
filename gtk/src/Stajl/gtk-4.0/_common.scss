@@ -83,7 +83,6 @@ treeview.expander:disabled { -gtk-icon-filter: opacity(0.5); }
 %view {
   color: $text_color;
   background-color: $base_color;
-  &:hover, &:backdrop:hover { background-color: gtkalpha(currentColor, .06); } // Custom style
 
   &:disabled {
     color: $insensitive_fg_color;

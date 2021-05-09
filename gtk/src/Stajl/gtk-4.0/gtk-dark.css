@@ -12,8 +12,6 @@ spinner:disabled, arrow:disabled, scrollbar:disabled, check:disabled, radio:disa
 
 .view, iconview, textview > text { color: white; background-color: #1d1f21; }
 
-.view:hover, iconview:hover, .view:backdrop:hover, textview > text:hover { background-color: alpha(currentColor,0.06); }
-
 .view:disabled, iconview:disabled, textview > text:disabled { color: #989a9b; background-color: #33363a; }
 
 .view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { border-radius: 3px; }
