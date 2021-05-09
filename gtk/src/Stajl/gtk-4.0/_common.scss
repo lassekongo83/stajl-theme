@@ -93,7 +93,7 @@ treeview.expander:disabled { -gtk-icon-filter: opacity(0.5); }
     &:focus, & {
       @extend %selected_items;
 
-      border-radius: 3px;
+      border-radius: $button_radius;
     }
   }
 }
@@ -3489,8 +3489,9 @@ separator.sidebar {
     margin: 0; // 0 $menu-margin 2px;
 
     &:hover,
+    &:backdrop:hover,
     &:focus-visible:focus-within {
-      background-color: darken($menu_selected_color, 5%);
+      background-color: gtkalpha(currentColor, .06);
     }
 
     &:selected {

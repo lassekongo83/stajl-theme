@@ -14,7 +14,7 @@ spinner:disabled, arrow:disabled, scrollbar:disabled, check:disabled, radio:disa
 
 .view:disabled, iconview:disabled, textview > text:disabled { color: #8a8e8f; background-color: #f0f1f1; }
 
-.view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { border-radius: 3px; }
+.view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, textview > text:selected:focus, textview > text:selected { border-radius: 2px; }
 
 textview:drop(active) { caret-color: #2ec27e; }
 
@@ -1339,7 +1339,7 @@ separator.sidebar { background-color: #bfc4c4; }
 
 .navigation-sidebar > row { min-height: 36px; padding: 0 8px; border-radius: 0; margin: 0; }
 
-.navigation-sidebar > row:hover, .navigation-sidebar > row:focus-visible:focus-within { background-color: #c9cdcd; }
+.navigation-sidebar > row:hover, .navigation-sidebar > row:backdrop:hover, .navigation-sidebar > row:focus-visible:focus-within { background-color: alpha(currentColor,0.06); }
 
 .navigation-sidebar > row:selected { background-color: #4c73b2; color: #ffffff; }
 
