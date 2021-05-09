@@ -40,9 +40,9 @@ $ease-out: cubic-bezier(0, 0, .2, 1);
 $ease-in: cubic-bezier(.4, 0, 1, 1);
 $ease-in-out: cubic-bezier(.4, 0, .6, 1);
 
-/***************
- * Base States *
- ***************/
+//-------------//
+// Base States //
+//-------------//
 .background {
   color: $fg_color;
   background-color: $bg_color;
@@ -65,12 +65,12 @@ dnd {
   -gtk-icon-size: 32px;
 }
 
-/*
-   These wildcard seems unavoidable, need to investigate.
-   Wildcards are bad and troublesome, use them with care,
-   or better, just don't.
-   Every time a wildcard is used a kitten dies, painfully.
-*/
+//
+//  These wildcard seems unavoidable, need to investigate.
+//  Wildcards are bad and troublesome, use them with care,
+//  or better, just don't.
+//  Everytime a wildcard is used a kitten dies, painfully.
+//
 
 spinner:disabled,
 arrow:disabled,
@@ -83,6 +83,7 @@ treeview.expander:disabled { -gtk-icon-filter: opacity(0.5); }
 %view {
   color: $text_color;
   background-color: $base_color;
+  &:hover, &:backdrop:hover { background-color: gtkalpha(currentColor, .06); } // Custom style
 
   &:disabled {
     color: $insensitive_fg_color;
@@ -244,10 +245,9 @@ window.aboutdialog image.large-icons {
 
 }
 
-
-/*********************
- * Spinner Animation *
- *********************/
+//-------------------//
+// Spinner Animation //
+//-------------------//
 @keyframes spin {
   to { transform: rotate(1turn); }
 }
@@ -265,9 +265,9 @@ spinner {
   }
 }
 
-/**********************
- * General Typography *
- **********************/
+//--------------------//
+// General Typography //
+//--------------------//
 
 .large-title {
    font-weight: 300;
@@ -306,9 +306,9 @@ spinner {
    font-size: 9pt;
 }
 
-/****************
- * Text Entries *
- ****************/
+//--------------//
+// Text Entries //
+//--------------//
 
 %entry,
 entry {
@@ -351,7 +351,7 @@ entry {
     &:focus-within {
       @include entry(focus);
       > placeholder {
-        opacity: 0; /* We hide placeholders on focus */
+        opacity: 0; // We hide placeholders on focus
       }
     }
 
@@ -484,16 +484,16 @@ treeview entry {
   }
 }
 
-/*******************
- * Editable Labels *
- *******************/
+//-----------------//
+// Editable Labels //
+//-----------------//
 editablelabel > stack > text {
   @include entry(normal);
 }
 
-/***********
- * Buttons *
- ***********/
+//---------//
+// Buttons //
+//---------//
 // stuff for .needs-attention
 $_dot_color: if($variant=='light', $selected_bg_color,
                                    lighten($selected_bg_color,15%));
@@ -885,7 +885,7 @@ button {
   &:not(:last-child) > button { @extend %linked_not_bottom; }
 }
 
-/* menu buttons */
+// menu buttons
 modelbutton.flat {
   min-height: 26px;
   padding-left: 5px;
@@ -919,7 +919,7 @@ modelbutton.flat arrow {
   &.right { -gtk-icon-source: -gtk-icontheme("go-next-symbolic"); }
 }
 
-/* oldstyle toolbar buttons */
+// oldstyle toolbar buttons
 
 .toolbar button {
   margin: 1px;
@@ -954,8 +954,8 @@ button.color {
   }
 }
 
-/* list buttons */
-/* tone down as per new designs, see issue #1473 */
+// list buttons
+// tone down as per new designs, see issue #1473
 %list_button,
 list > row button.image-button:not(.flat) {
   @extend %undecorated_button;
@@ -973,9 +973,9 @@ list > row button.image-button:not(.flat) {
   }
 }
 
-/*********
- * Links *
- *********/
+//-------//
+// Links //
+//-------//
 
 %link,
 link {
@@ -1029,10 +1029,9 @@ button.link {
   }
 }
 
-
-/*****************
- * GtkSpinButton *
- *****************/
+//---------------//
+// GtkSpinButton //
+//---------------//
 spinbutton {
   &:not(.vertical) {
     // in this horizontal configuration, the whole spinbutton
@@ -1061,7 +1060,7 @@ spinbutton {
       @extend %spinbutton_horz_entry;
     }
 
-    /* :not here just to bump specificity above that of the list button styling */
+    // :not here just to bump specificity above that of the list button styling
     > button.image-button.up:not(.flat),
     > button.image-button.down:not(.flat) {
       min-height: 16px;
@@ -1218,10 +1217,9 @@ spinbutton {
   font-feature-settings: "tnum";
 }
 
-
-/**************
- * ComboBoxes *
- **************/
+//------------//
+// ComboBoxes //
+//------------//
 dropdown > popover.menu.background > contents { padding: 0; } //allow search entries with no margin
 
 dropdown > button > box {
@@ -1309,10 +1307,9 @@ combobox {
   &:not(:last-child) > box > button.combo { @extend %linked_not_bottom; }
 }
 
-
-/************
- * Toolbars *
- ************/
+//----------//
+// Toolbars //
+//----------//
 %toolbar {
   padding: 4px 3px 3px 4px; //4px;
   border-spacing: 4px;
@@ -1369,9 +1366,9 @@ searchbar > revealer > box {
   }
 }
 
-/**************
- * GtkInfoBar *
- **************/
+//------------//
+// GtkInfoBar //
+//------------//
 infobar {
   > revealer > box {
     padding: 8px;
@@ -1408,49 +1405,18 @@ infobar {
       &:hover { @include button(hover); }
    }
 
-
-/*****************
- * Title buttons *
- *****************/
+//---------------//
+// Title buttons //
+//---------------//
 
 windowcontrols {
   border-spacing: 0px;
-
-  /*&:not(.empty) {
-    &.start:dir(ltr),
-    &.end:dir(rtl) {
-      margin-right: 7px;
-    }
-
-    &.start:dir(rtl),
-    &.end:dir(ltr) {
-      margin-left: 7px;
-    }
-  }
-
-  button {
-    @extend %button_basic;
-    @extend %button_basic_flat;
-
-    border-radius: 0;
-    padding: 6px;
-    margin: 0 2px;
-    min-width: 0;
-    min-height: 0;
-    &:hover {
-      //special case hover colors inside a headerbar
-      @include button(undecorated-hover,$c:darken($headerbar_bg_color,6%));
-    }
-    &:active,
-    &:checked { @include button(undecorated-active,$c:darken($headerbar_bg_color,10%)); }
-  }*/
-  @extend %titlebuttons;
+  @extend %titlebuttons; // styled in _custom.scss
 }
 
-
-/***************
- * Header bars *
- ***************/
+//-------------//
+// Header bars //
+//-------------//
 %titlebar,
 headerbar {
   padding: 0 4px;
@@ -1484,7 +1450,7 @@ headerbar {
     @extend .dim-label;
   }
 
-  /* Darken switchbuttons for headerbars. issue #1588 */
+  // Darken switchbuttons for headerbars. issue #1588
   stackswitcher > button:checked,
   button.toggle:checked {
     @include button(active);
@@ -1506,8 +1472,11 @@ headerbar {
   .fullscreen & {
     &:backdrop, & {
       border-radius: 0;
+      box-shadow: none; // custom style: remove box-shadow on tiled windows
     }
   }
+
+  .tiled & { border: 1px solid transparentize(black, 0.8); } // custom style: border between tiled windows
 
   &.default-decoration {
     min-height: $csd_title_height; //28px;
@@ -1533,6 +1502,11 @@ headerbar {
         padding: 4px;
       }
     }
+  }
+
+  separator { // custom style
+    //background-color: transparent;
+    &, &:backdrop { @include headerbar_fill; }
   }
 
   .solid-csd & {
@@ -1590,7 +1564,6 @@ headerbar {
   }
 }
 
-
 .titlebar:not(headerbar) {
   window.csd > & {
     // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
@@ -1625,14 +1598,14 @@ window.devel {
 
     &:backdrop {
       background: $bg_color cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
-                  image($bg_color); /* background-color would flash */
+                  image($bg_color); // background-color would flash
     }
   }
 }
 
-/************
- * Pathbars *
- ************/
+//----------//
+// Pathbars //
+//----------//
 
 pathbar > button {
   &.text-button, &.image-button, & {
@@ -1661,10 +1634,9 @@ pathbar > button {
   }
 }
 
-
-/**************
- * Tree Views *
- **************/
+//------------//
+// Tree Views //
+//------------//
 
 $_treeview_borders_color: if($variant=='light',mix($borders_color, $base_color,80%),mix($fg_color, $base_color, 20%));
 $_treeview_backdrop_borders_color: if($variant=='light',mix($backdrop_borders_color, $base_color, 80%),mix($backdrop_fg_color, $base_color, 20%));
@@ -1845,9 +1817,9 @@ treeview.view {
   &:last-child { &:backdrop, & { border-right-style: none; }}
 }
 
-/***************
- * Popovers   *
- ***************/
+//----------//
+// Popovers //
+//----------//
 
 popover.background {
   background-color: transparent;
@@ -1910,9 +1882,9 @@ magnifier {
   background-color: $base_color;
 }
 
-/**********************
- * Popover Base Menus *
- **********************/
+//--------------------//
+// Popover Base Menus //
+//--------------------//
 
 $_menu-padding: 8px; //inner menuitem padding
 //global $menu-margin for outside menuitems
@@ -2053,10 +2025,9 @@ menubar {
   }
 }
 
-
-/*************
- * Notebooks *
- *************/
+//-----------//
+// Notebooks //
+//-----------//
 notebook {
   @include focus-ring("> header > tabs > tab:checked", $offset: -2px, $focus-state: 'focus:focus-visible');
 
@@ -2298,10 +2269,9 @@ notebook {
   }
 }
 
-
-/**************
- * Scrollbars *
- **************/
+//------------//
+// Scrollbars //
+//------------//
 scrollbar {
   $_slider_min_length: 40px;
 
@@ -2383,17 +2353,16 @@ treeview ~ scrollbar.vertical {
   margin-top: -1px;
 }
 
-/**********
- * Switch *
- **********/
+//--------//
+// Switch //
+//--------//
 switch {
   @extend %switchbutton; // styled in _custom.scss
 }
 
-
-/*************************
- * Check and Radio items *
- *************************/
+//-----------------------//
+// Check and Radio items //
+//-----------------------//
 // draw regular check and radio items using our PNG assets
 // all assets are rendered from assets.svg. never add pngs directly
 
@@ -2528,10 +2497,9 @@ treeview.view radio {
 
 treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a workaround
 
-
-/************
- * GtkScale *
- ************/
+//----------//
+// GtkScale //
+//----------//
 %scale_trough {
   border: 1px solid $dark_fill;
   border-radius: 3px;
@@ -2880,10 +2848,9 @@ scale {
   }
 }
 
-
-/*****************
- * Progress bars *
- *****************/
+//---------------//
+// Progress bars //
+//---------------//
 progressbar {
   // sizing
   &.horizontal {
@@ -2912,8 +2879,8 @@ progressbar {
   > trough { @extend %scale_trough; }
 
   > trough > progress {
-    @extend %scale_highlight; /* share most of scales' */
-    /* override insensitive that is specific to progress */
+    @extend %scale_highlight; // share most of scales
+    // override insensitive that is specific to progress
     &:disabled {
       background-color: $insensitive_fg_color;
       border-color: $insensitive_fg_color;
@@ -2963,9 +2930,9 @@ progressbar {
   > trough.empty > progress { all: unset; } // makes the progress indicator disappear, when the fraction is 0
 }
 
-/*************
- * Level Bar *
- *************/
+//-----------//
+// Level Bar //
+//-----------//
 
 $_levelbar_size: 9px;
 $_levelbar_border_radius: 5px;
@@ -3048,10 +3015,9 @@ levelbar {
   }
 }
 
-
-/****************
- * Print dialog *
-*****************/
+//--------------//
+// Print dialog //
+//--------------//
 window.dialog.print {
   drawing {
     color: $fg_color;
@@ -3070,10 +3036,9 @@ window.dialog.print {
   .dialog-action-box { margin: 12px; }
 }
 
-
-/**********
- * Frames *
- **********/
+//--------//
+// Frames //
+//--------//
 frame,
 .frame {
   border: 1px solid $borders_color;
@@ -3137,10 +3102,9 @@ separator {
   min-height: 1px;
 }
 
-
-/*********
- * Lists *
- *********/
+//-------//
+// Lists //
+//-------//
 listview,
 list {
   color: $text_color;
@@ -3223,11 +3187,11 @@ treeexpander {
   border-spacing: 4px;
 }
 
-/********************************************************
- * Data Tables                                          *
- * treeview like tables with individual focusable cells *
- * https://gitlab.gnome.org/GNOME/gtk/-/issues/2929     *
- ********************************************************/
+//------------------------------------------------------//
+// Data Tables                                          //
+// treeview like tables with individual focusable cells //
+// https://gitlab.gnome.org/GNOME/gtk/-/issues/2929     //
+//------------------------------------------------------//
 
 columnview row:not(:selected) cell editablelabel:not(.editing):focus-within {
   outline: 2px solid $focus_border_color;
@@ -3242,17 +3206,16 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
   background-color: $selected_bg_color;
 }
 
-/*******************************************************
- * Rich Lists                                          *
- * Large list usually containing lots of widgets       *
- * https://gitlab.gnome.org/GNOME/gtk/-/issues/3073    *
- *******************************************************/
+//--------------------------------------------------//
+// Rich Lists                                       //
+// Large list usually containing lots of widgets    //
+// https://gitlab.gnome.org/GNOME/gtk/-/issues/3073 //
+//--------------------------------------------------//
 
-
-.rich-list { /* rich lists usually containing other widgets than just labels/text */
+.rich-list { // rich lists usually containing other widgets than just labels/text
   & > row {
     padding: 8px 12px;
-    min-height: 32px; /* should be tall even when only containing a label */
+    min-height: 32px; // should be tall even when only containing a label
 
     & > box {
       border-spacing: 12px;
@@ -3260,9 +3223,9 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
   }
 }
 
-/*********************
- * App Notifications *
- *********************/
+//-------------------//
+// App Notifications //
+//-------------------//
 .app-notification {
   @extend %osd;
 
@@ -3279,10 +3242,9 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
   border { border: none; }
 }
 
-
-/*************
- * Expanders *
- *************/
+//-----------//
+// Expanders //
+//-----------//
 expander {
   min-width: 16px;
   min-height: 16px;
@@ -3317,10 +3279,9 @@ expander-widget {
   }
 }
 
-
-/************
- * Calendar *
- ***********/
+//----------//
+// Calendar //
+//----------//
 calendar {
   color: $text_color;
   border: 1px solid $borders_color;
@@ -3377,10 +3338,9 @@ calendar {
 
 }
 
-
-/***********
- * Dialogs *
- ***********/
+//---------//
+// Dialogs //
+//---------//
 window.dialog.message { // Message Dialog styling
   .titlebar {
     min-height: 20px;
@@ -3443,10 +3403,9 @@ filechooserbutton:drop(active) {
   border-color: transparent;
 }
 
-
-/***********
- * Sidebar *
- ***********/
+//---------//
+// Sidebar //
+//---------//
 .sidebar {
   background-color: mix($bg_color, $base_color, 50%);
 
@@ -3513,10 +3472,9 @@ separator.sidebar {
   background-color: $borders_color;
 }
 
-
-/**********************
- * Navigation Sidebar *
- **********************/
+//--------------------//
+// Navigation Sidebar //
+//--------------------//
 
 .navigation-sidebar {
   padding: 0; //$menu-margin 0; //only vertical padding. horizontal row size would clip
@@ -3556,10 +3514,9 @@ separator.sidebar {
   }
 }
 
-
-/****************
- * File chooser *
- ****************/
+//--------------//
+// File chooser //
+//--------------//
 
 $_placesidebar_icons_opacity: 0.7;
 
@@ -3567,9 +3524,8 @@ row image.sidebar-icon { opacity: $_placesidebar_icons_opacity; } // dim the sid
                                                                   // see bug #786613 for details
                                                                   // on this oddity
 
-/* this should be more generic, only using .navigation-sidebar
-   https://gitlab.gnome.org/GNOME/gtk/-/issues/2929
-*/
+// this should be more generic, only using .navigation-sidebar
+// https://gitlab.gnome.org/GNOME/gtk/-/issues/2929
 
 placessidebar {
   .navigation-sidebar > row {
@@ -3645,10 +3601,9 @@ placesview {
   }
 }
 
-
-/*********
- * Paned *
- *********/
+//-------//
+// Paned //
+//-------//
 paned {
   > separator {
     min-width: 1px;
@@ -3708,10 +3663,9 @@ paned {
   }
 }
 
-
-/**************
- * GtkVideo *
- **************/
+//----------//
+// GtkVideo //
+//----------//
 
 video {
   & image.osd {
@@ -3722,9 +3676,9 @@ video {
   background: black;
 }
 
-/************
- * Tooltips *
- ************/
+//----------//
+// Tooltips //
+//----------//
 tooltip {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
@@ -3746,10 +3700,9 @@ tooltip {
   }
 }
 
-
-/*****************
- * Color Chooser *
- *****************/
+//---------------//
+// Color Chooser //
+//---------------//
 colorswatch {
   // This widget is made of two boxes one on top of the other, the lower box is colorswatch {} the other one
   // is colorswatch overlay {}, colorswatch has the programmatically set background, so most of the style is
@@ -3896,9 +3849,9 @@ plane {
 // colorscale popup
 colorchooser .popover.osd { border-radius: 5px; }
 
-/********
- * Misc *
- ********/
+//------//
+// Misc //
+//------//
 .content-view {
   background-color: darken($bg_color,7%);
 
@@ -3935,10 +3888,9 @@ colorchooser .popover.osd { border-radius: 5px; }
   }
 }
 
-
-/**********************
- * Window Decorations *
- *********************/
+//--------------------//
+// Window Decorations //
+//--------------------//
 window {
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0px;
@@ -4023,10 +3975,9 @@ tooltip.csd {
 
 .monospace { font-family: monospace; }
 
-
-/**********************
- * Touch Copy & Paste *
- *********************/
+//--------------------//
+// Touch Copy & Paste //
+//--------------------//
 //touch selection handlebars for the Popover.osd above
 cursor-handle {
   background-color: transparent;
@@ -4072,7 +4023,6 @@ shortcut > .keycap {
   border-radius: 5px;
   box-shadow: if($variant == 'light', inset 0 -3px mix($base_color, $bg_color, 20%), inset 0 -3px mix($borders_color, $base_color, 60%));
   font-size: smaller;
-
 }
 
 :not(decoration):not(window):drop(active):focus,
@@ -4095,10 +4045,11 @@ stackswitcher.circular {
     padding: 0;
   }
 }
-/*************
- * App Icons *
- *************/
-/* Outline for low res icons */
+
+//-----------//
+// App Icons //
+//-----------//
+// Outline for low res icons
 .lowres-icon {
     -gtk-icon-shadow: 0 -1px rgba(0,0,0,0.05),
       1px 0 rgba(0,0,0,0.1),
@@ -4106,7 +4057,7 @@ stackswitcher.circular {
       -1px 0 rgba(0,0,0,0.1);
 }
 
-/* Drapshadow for large icons */
+// Drapshadow for large icons
 .icon-dropshadow {
   -gtk-icon-shadow: 0 1px 12px rgba(0,0,0,0.05),
       0 -1px rgba(0,0,0,0.05),
@@ -4115,9 +4066,9 @@ stackswitcher.circular {
       -1px 0 rgba(0,0,0,0.1);
 }
 
-/*********
- * Emoji *
- ********/
+//-------//
+// Emoji //
+//-------//
 
 popover.emoji-picker > contents {
   padding: 0;
@@ -4145,7 +4096,7 @@ button.emoji-section {
   min-width: 32px;
   min-height: 28px;
 
-  /* reset props inherited from the button style */
+  // reset props inherited from the button style
   background: none;
   box-shadow: none;
   text-shadow: none;

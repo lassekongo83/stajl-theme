@@ -1,5 +1,4 @@
 /*************************** Check and Radio buttons * */
-/*************** Base States * */
 .background { color: #2e3436; background-color: #e6e8e8; }
 
 .background:backdrop { text-shadow: none; -gtk-icon-shadow: none; }
@@ -10,10 +9,11 @@ dnd { color: #2e3436; }
 
 .large-icons { -gtk-icon-size: 32px; }
 
-/* These wildcard seems unavoidable, need to investigate. Wildcards are bad and troublesome, use them with care, or better, just don't. Every time a wildcard is used a kitten dies, painfully. */
 spinner:disabled, arrow:disabled, scrollbar:disabled, check:disabled, radio:disabled, treeview.expander:disabled { -gtk-icon-filter: opacity(0.5); }
 
 .view, iconview, textview > text { color: black; background-color: #fff; }
+
+.view:hover, iconview:hover, .view:backdrop:hover, textview > text:hover { background-color: alpha(currentColor,0.06); }
 
 .view:disabled, iconview:disabled, textview > text:disabled { color: #8a8e8f; background-color: #f0f1f1; }
 
@@ -81,7 +81,6 @@ window.aboutdialog image.large-icons { -gtk-icon-size: 128px; }
 
 .osd .scale-popup, .app-notification, .osd popover.background > arrow, .osd popover.background > contents, popover.background.touch-selection > arrow, popover.background.touch-selection > contents, popover.background.magnifier > arrow, popover.background.magnifier > contents, .osd { color: #eeeeec; border: none; background-color: rgba(53, 53, 53, 0.7); background-clip: padding-box; -gtk-icon-shadow: 0 1px black; }
 
-/********************* Spinner Animation * */
 @keyframes spin { to { transform: rotate(1turn); } }
 
 spinner { background: none; opacity: 0; -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
@@ -90,7 +89,6 @@ spinner:checked { opacity: 1; animation: spin 1s linear infinite; }
 
 spinner:checked:disabled { opacity: 0.5; }
 
-/********************** General Typography * */
 .large-title { font-weight: 300; font-size: 24pt; }
 
 .title-1 { font-weight: 800; font-size: 20pt; }
@@ -109,7 +107,6 @@ spinner:checked:disabled { opacity: 0.5; }
 
 .caption { font-weight: 400; font-size: 9pt; }
 
-/**************** Text Entries * */
 spinbutton.vertical > text, spinbutton:not(.vertical), entry { min-height: 24px; padding-left: 8px; padding-right: 8px; border: 1px solid; border-radius: 2px; border-spacing: 6px; transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94); color: black; border-color: #bfc4c4; background-color: #fff; }
 
 spinbutton.vertical > text, spinbutton:not(.vertical), entry { outline: 0 solid transparent; outline-offset: 4px; }
@@ -124,7 +121,7 @@ spinbutton.vertical > text > text > block-cursor, spinbutton:not(.vertical) > te
 
 spinbutton.vertical > text.flat, spinbutton.flat:not(.vertical), entry.flat:focus-within, entry.flat:backdrop, entry.flat:disabled, entry.flat { min-height: 0; padding: 2px; background-color: transparent; border-color: transparent; border-radius: 0; }
 
-spinbutton.vertical > text:focus-within > placeholder, spinbutton:focus-within:not(.vertical) > placeholder, entry:focus-within > placeholder { opacity: 0; /* We hide placeholders on focus */ }
+spinbutton.vertical > text:focus-within > placeholder, spinbutton:focus-within:not(.vertical) > placeholder, entry:focus-within > placeholder { opacity: 0; }
 
 spinbutton.vertical > text:disabled, spinbutton:disabled:not(.vertical), entry:disabled { color: #8a8e8f; border-color: #bfc4c4; background-color: #f0f1f1; }
 
@@ -182,10 +179,8 @@ treeview entry.flat, treeview entry { border-radius: 0; background-image: none; 
 
 treeview entry.flat:focus-within, treeview entry:focus-within { border-color: #4c73b2; }
 
-/******************* Editable Labels * */
 editablelabel > stack > text { color: black; border-color: #bfc4c4; background-color: #fff; }
 
-/*********** Buttons * */
 @keyframes needs_attention { from { background-image: radial-gradient(farthest-side, #4c73b2 0%, rgba(76, 115, 178, 0) 0%); }
   to { background-image: radial-gradient(farthest-side, #4c73b2 95%, rgba(76, 115, 178, 0)); } }
 
@@ -347,7 +342,6 @@ stacksidebar row.needs-attention > label:dir(rtl), stackswitcher > button.needs-
 
 .scale-popup button:hover, button.link, button.link:hover, button.link:active, button.link:checked, popover.menu box.circular-buttons button.circular.image-button.model, list > row button.image-button:not(.flat), .toolbar button, modelbutton.flat { background-color: transparent; background-image: none; border-color: transparent; box-shadow: inset 0 1px rgba(255, 255, 255, 0), 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-/* menu buttons */
 modelbutton.flat { min-height: 26px; padding-left: 5px; padding-right: 5px; border-radius: 2px; }
 
 modelbutton.flat:hover { background-color: #4c73b2; color: #ffffff; }
@@ -362,7 +356,6 @@ modelbutton.flat arrow.left { -gtk-icon-source: -gtk-icontheme("go-previous-symb
 
 modelbutton.flat arrow.right { -gtk-icon-source: -gtk-icontheme("go-next-symbolic"); }
 
-/* oldstyle toolbar buttons */
 .toolbar button { margin: 1px; }
 
 .toolbar button:hover { color: #2e3436; border-color: rgba(0, 0, 0, 0.4); border-bottom-color: rgba(0, 0, 0, 0.44); background-image: image(white); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); }
@@ -385,8 +378,6 @@ button.color > colorswatch:only-child, button.color > colorswatch:only-child > o
 
 .osd button.color:disabled colorswatch:only-child, .osd button.color:active colorswatch:only-child, .osd button.color:checked colorswatch:only-child, button.color:disabled colorswatch:only-child, button.color:active colorswatch:only-child, button.color:checked colorswatch:only-child { box-shadow: none; }
 
-/* list buttons */
-/* tone down as per new designs, see issue #1473 */
 popover.menu box.circular-buttons button.circular.image-button.model, list > row button.image-button:not(.flat) { border: 1px solid rgba(191, 196, 196, 0.5); }
 
 popover.menu box.circular-buttons button.circular.image-button.model:hover, list > row button.image-button:not(.flat):hover { color: #2e3436; border-color: rgba(0, 0, 0, 0.4); border-bottom-color: rgba(0, 0, 0, 0.44); background-image: image(white); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); }
@@ -405,7 +396,6 @@ popover.menu box.circular-buttons button.destructive-action.circular.image-butto
 
 popover.menu box.circular-buttons button.destructive-action.circular.image-button.model:focus:focus-visible, list > row button.image-button.destructive-action:not(.flat):focus:focus-visible { outline-color: rgba(255, 255, 255, 0.8); outline-width: 2px; outline-offset: -2px; }
 
-/********* Links * */
 button.link, link { color: #3d5c8e; text-decoration: underline; }
 
 button.link:visited, link:visited { color: #2d456b; }
@@ -432,10 +422,9 @@ button.link, button.link:hover, button.link:active, button.link:checked { text-s
 
 button.link > label { text-decoration: underline; }
 
-/***************** GtkSpinButton * */
 spinbutton { font-feature-settings: "tnum"; }
 
-spinbutton:not(.vertical) { padding: 0; border-spacing: 0; /* :not here just to bump specificity above that of the list button styling */ }
+spinbutton:not(.vertical) { padding: 0; border-spacing: 0; }
 
 .osd spinbutton:not(.vertical) > text, spinbutton:not(.vertical) > text { min-width: 28px; margin: 0; background: none; background-color: transparent; border: none; border-radius: 0; box-shadow: none; padding: 6px; }
 
@@ -493,7 +482,6 @@ treeview spinbutton:not(.vertical) { min-height: 0; border-style: none; border-r
 
 treeview spinbutton:not(.vertical) > text { min-height: 0; padding: 1px 2px; }
 
-/************** ComboBoxes * */
 dropdown > popover.menu.background > contents { padding: 0; }
 
 dropdown > button > box { border-spacing: 6px; }
@@ -514,7 +502,6 @@ dropdown popover listview > row:selected, combobox popover listview > row:select
 
 dropdown popover .dropdown-searchbar, combobox popover .dropdown-searchbar { padding: 6px; border-bottom: 1px solid #bfc4c4; }
 
-/************ Toolbars * */
 searchbar > revealer > box, .toolbar, toolbar { padding: 4px 3px 3px 4px; border-spacing: 4px; background-color: #e6e8e8; }
 
 .osd .toolbar, .osd toolbar { background-color: transparent; }
@@ -533,7 +520,6 @@ searchbar > revealer > box { border-style: solid; border-color: #bfc4c4; backgro
 
 searchbar > revealer > box:backdrop { border-color: #c7cbcb; background-color: #dbdede; box-shadow: none; transition: none; }
 
-/************** GtkInfoBar * */
 infobar > revealer > box { padding: 8px; border-spacing: 12px; }
 
 infobar.action:hover > revealer > box { background-color: #f9f8f7; }
@@ -544,11 +530,9 @@ infobar .close, searchbar .close { border-color: transparent; background-color: 
 
 infobar .close:hover, searchbar .close:hover { color: #2e3436; border-color: rgba(0, 0, 0, 0.4); border-bottom-color: rgba(0, 0, 0, 0.44); background-image: image(white); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); }
 
-/***************** Title buttons * */
-windowcontrols { border-spacing: 0px; /*&:not(.empty) { &.start:dir(ltr), &.end:dir(rtl) { margin-right: 7px; } &.start:dir(rtl), &.end:dir(ltr) { margin-left: 7px; } } button { @extend %button_basic; @extend %button_basic_flat; border-radius: 0; padding: 6px; margin: 0 2px; min-width: 0; min-height: 0; &:hover { //special case hover colors inside a headerbar @include button(undecorated-hover,$c:darken($headerbar_bg_color,6%)); } &:active, &:checked { @include button(undecorated-active,$c:darken($headerbar_bg_color,10%)); } }*/ }
+windowcontrols { border-spacing: 0px; }
 
-/*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0 4px; min-height: 32px; border-width: 0; border-style: solid; border-color: #bfc4c4; border-radius: 0; background: #4d5358; box-shadow: inset 0 1px rgba(255, 255, 255, 0.04); border-color: transparent; /* Darken switchbuttons for headerbars. issue #1588 */ }
+.titlebar:not(headerbar), headerbar { padding: 0 4px; min-height: 32px; border-width: 0; border-style: solid; border-color: #bfc4c4; border-radius: 0; background: #4d5358; box-shadow: inset 0 1px rgba(255, 255, 255, 0.04); border-color: transparent; }
 
 .titlebar:backdrop:not(headerbar), headerbar:backdrop { background-image: none; }
 
@@ -560,7 +544,9 @@ windowcontrols { border-spacing: 0px; /*&:not(.empty) { &.start:dir(ltr), &.end:
 
 .titlebar:not(headerbar) stackswitcher > button:checked:backdrop, .titlebar:not(headerbar) button.toggle:checked:backdrop, headerbar stackswitcher > button:checked:backdrop, headerbar button.toggle:checked:backdrop { color: #8a8e8f; border-color: #c7cbcb; background-image: image(#d8dddd); box-shadow: none; }
 
-.tiled .titlebar:not(headerbar), .tiled-top .titlebar:not(headerbar), .tiled-left .titlebar:not(headerbar), .tiled-right .titlebar:not(headerbar), .tiled-bottom .titlebar:not(headerbar), .maximized .titlebar:not(headerbar), .fullscreen .titlebar:not(headerbar), .tiled headerbar, .tiled-top headerbar, .tiled-left headerbar, .tiled-right headerbar, .tiled-bottom headerbar, .maximized headerbar, .fullscreen headerbar { border-radius: 0; }
+.tiled .titlebar:not(headerbar), .tiled-top .titlebar:not(headerbar), .tiled-left .titlebar:not(headerbar), .tiled-right .titlebar:not(headerbar), .tiled-bottom .titlebar:not(headerbar), .maximized .titlebar:not(headerbar), .fullscreen .titlebar:not(headerbar), .tiled headerbar, .tiled-top headerbar, .tiled-left headerbar, .tiled-right headerbar, .tiled-bottom headerbar, .maximized headerbar, .fullscreen headerbar { border-radius: 0; box-shadow: none; }
+
+.tiled .titlebar:not(headerbar), .tiled headerbar { border: 1px solid rgba(0, 0, 0, 0.2); }
 
 .default-decoration.titlebar:not(headerbar), headerbar.default-decoration { min-height: 28px; padding: 0 4px; }
 
@@ -569,6 +555,8 @@ windowcontrols { border-spacing: 0px; /*&:not(.empty) { &.start:dir(ltr), &.end:
 .default-decoration.titlebar:not(headerbar) windowcontrols menubutton, headerbar.default-decoration windowcontrols menubutton { min-height: 26px; min-width: 26px; margin: 0; padding: 0; }
 
 .default-decoration.titlebar:not(headerbar) windowcontrols menubutton button, headerbar.default-decoration windowcontrols menubutton button { min-height: 20px; min-width: 20px; margin: 0; padding: 4px; }
+
+.titlebar:not(headerbar) separator, headerbar separator, headerbar separator:backdrop { background: #4d5358; box-shadow: inset 0 1px rgba(255, 255, 255, 0.04); border-color: transparent; }
 
 .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd headerbar:backdrop:dir(rtl), .solid-csd headerbar:backdrop:dir(ltr), .solid-csd headerbar:dir(rtl), .solid-csd headerbar:dir(ltr) { margin-left: -1px; margin-right: -1px; margin-top: -1px; border-radius: 0; box-shadow: none; }
 
@@ -588,9 +576,8 @@ window.csd > .titlebar:not(headerbar) { padding: 0; background-color: transparen
 
 window.devel headerbar.titlebar { background: #e6e8e8 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, linear-gradient(to right, transparent 65%, rgba(76, 115, 178, 0.2)), linear-gradient(to top, #c3c8c8, #cbd0d0 3px, #dbdede); }
 
-window.devel headerbar.titlebar:backdrop { background: #e6e8e8 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, image(#e6e8e8); /* background-color would flash */ }
+window.devel headerbar.titlebar:backdrop { background: #e6e8e8 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, image(#e6e8e8); }
 
-/************ Pathbars * */
 pathbar > button.text-button, pathbar > button.image-button, pathbar > button { padding-left: 4px; padding-right: 4px; }
 
 pathbar > button.text-button.image-button label { padding-left: 0; padding-right: 0; }
@@ -603,7 +590,6 @@ pathbar > button image { padding-left: 4px; padding-right: 4px; }
 
 pathbar > button.slider-button { padding-left: 0; padding-right: 0; }
 
-/************** Tree Views * */
 columnview.view, treeview.view { border-left-color: #ccd0d0; border-top-color: #ccd0d0; }
 
 columnview.view, treeview.view { outline: 0 solid transparent; outline-offset: 4px; }
@@ -668,7 +654,6 @@ columnview.view > header > button:disabled, treeview.view > header > button:disa
 
 columnview.view > header > button:last-child, treeview.view > header > button:last-child { border-right-style: none; }
 
-/*************** Popovers   * */
 popover.background { background-color: transparent; font: initial; }
 
 popover.background > arrow, popover.background > contents { background-color: #fff; background-clip: padding-box; border: 1px solid rgba(0, 0, 0, 0.23); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
@@ -689,7 +674,6 @@ popover.background > contents list separator { margin: 0; }
 
 magnifier { background-color: #fff; }
 
-/********************** Popover Base Menus * */
 popover.menu { padding: 0; }
 
 popover.menu box.inline-buttons { padding: 0 8px; }
@@ -748,7 +732,6 @@ menubar > item popover.menu popover.menu { padding: 0 0 4px 0; }
 
 menubar > item popover.menu.background popover.menu.background > contents { margin: 0; border-radius: 0; }
 
-/************* Notebooks * */
 notebook > header > tabs > tab:checked { outline: 0 solid transparent; outline-offset: 4px; }
 
 notebook:focus:focus-visible > header > tabs > tab:checked { outline-color: rgba(76, 115, 178, 0.5); outline-width: 2px; outline-offset: -2px; }
@@ -861,7 +844,6 @@ notebook > header.bottom > tabs > tab { padding-top: 4px; }
 
 notebook > stack:not(:only-child) { background-color: #fff; }
 
-/************** Scrollbars * */
 scrollbar { background-color: #c1c4c4; transition: 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
 scrollbar.top { border-bottom: 1px solid #bfc4c4; }
@@ -902,8 +884,6 @@ scrollbar.vertical > range > trough > slider { min-height: 40px; }
 
 treeview ~ scrollbar.vertical { border-top: 1px solid #bfc4c4; margin-top: -1px; }
 
-/********** Switch * */
-/************************* Check and Radio items * */
 .view.content-view.check:not(list), iconview.content-view.check:not(list), .content-view .tile check:not(list) { margin: 4px; min-width: 32px; min-height: 32px; color: transparent; background-color: #4c73b2; border-radius: 5px; background-image: none; transition: 200ms; box-shadow: none; border-width: 0; -gtk-icon-source: none; -gtk-icon-shadow: none; }
 
 .view.content-view.check:hover:not(list), iconview.content-view.check:hover:not(list), .content-view .tile check:hover:not(list) { margin: 4px; min-width: 32px; min-height: 32px; color: transparent; background-color: #4c73b2; border-radius: 5px; background-image: none; transition: 200ms; box-shadow: none; border-width: 0; -gtk-icon-source: none; -gtk-icon-shadow: none; }
@@ -978,7 +958,6 @@ treeview.view radio:indeterminate:selected, radio:indeterminate { -gtk-icon-sour
 
 treeview.view check:selected:focus, treeview.view check:selected, treeview.view radio:selected:focus, treeview.view radio:selected { color: #ffffff; border-color: #35507c; }
 
-/************ GtkScale * */
 progressbar > trough, scale > trough > fill, scale > trough { border: 1px solid #ccd0d0; border-radius: 3px; background-color: #ccd0d0; }
 
 headerbar progressbar > trough, headerbar scale > trough > fill, headerbar scale > trough { background-color: #b7bcbc; }
@@ -1123,7 +1102,6 @@ scale.color.fine-tune.vertical:dir(rtl) > trough { padding-right: 7px; backgroun
 
 scale.color.fine-tune.vertical:dir(rtl) > trough > slider { margin-right: -15px; margin-left: 6px; }
 
-/***************** Progress bars * */
 progressbar { font-size: smaller; color: rgba(46, 52, 54, 0.4); font-feature-settings: "tnum"; }
 
 progressbar.horizontal > trough { min-width: 150px; }
@@ -1138,7 +1116,7 @@ progressbar.horizontal > trough > progress { margin: 0 -1px; }
 
 progressbar.vertical > trough > progress { margin: -1px 0; }
 
-progressbar > trough > progress { /* share most of scales' */ /* override insensitive that is specific to progress */ border-radius: 1.5px; }
+progressbar > trough > progress { border-radius: 1.5px; }
 
 progressbar > trough > progress:disabled { background-color: #8a8e8f; border-color: #8a8e8f; }
 
@@ -1158,7 +1136,6 @@ progressbar.osd > trough > progress { border-style: none; border-radius: 0; }
 
 progressbar > trough.empty > progress { all: unset; }
 
-/************* Level Bar * */
 levelbar.horizontal trough > block { min-height: 9px; border-radius: 5px; }
 
 levelbar.horizontal trough > block:dir(rtl) { border-radius: 0 5px 5px 0; }
@@ -1189,14 +1166,12 @@ levelbar > trough > block.full { border-color: #73a56f; background-color: #73a56
 
 levelbar > trough > block.empty { background-color: #d9dcdc; border-color: #d9dcdc; }
 
-/**************** Print dialog * */
 window.dialog.print drawing { color: #2e3436; background: none; border: none; padding: 0; }
 
 window.dialog.print drawing paper { background: white; color: #2e3436; border: 1px solid #bfc4c4; }
 
 window.dialog.print .dialog-action-box { margin: 12px; }
 
-/********** Frames * */
 frame, .frame { border: 1px solid #bfc4c4; }
 
 frame { border-radius: 0px; }
@@ -1219,7 +1194,6 @@ scrolledwindow > junction:dir(rtl) { background: #bfc4c4, linear-gradient(to bot
 
 separator { background: #ccd0d0; min-width: 1px; min-height: 1px; }
 
-/********* Lists * */
 listview, list { color: black; background-color: #fff; border-color: #bfc4c4; }
 
 listview:backdrop, list:backdrop { color: #323232; background-color: #fcfcfc; border-color: #c7cbcb; }
@@ -1260,26 +1234,20 @@ columnview.data-table > listview > row > cell { padding-top: 2px; padding-bottom
 
 treeexpander { border-spacing: 4px; }
 
-/******************************************************** Data Tables                                          * treeview like tables with individual focusable cells * https://gitlab.gnome.org/GNOME/gtk/-/issues/2929     * */
 columnview row:not(:selected) cell editablelabel:not(.editing):focus-within { outline: 2px solid rgba(76, 115, 178, 0.5); }
 
 columnview row:not(:selected) cell editablelabel.editing:focus-within { outline: 2px solid #4c73b2; }
 
 columnview row:not(:selected) cell editablelabel.editing text selection { color: #ffffff; background-color: #4c73b2; }
 
-/******************************************************* Rich Lists                                          * Large list usually containing lots of widgets       * https://gitlab.gnome.org/GNOME/gtk/-/issues/3073    * */
-.rich-list { /* rich lists usually containing other widgets than just labels/text */ }
-
-.rich-list > row { padding: 8px 12px; min-height: 32px; /* should be tall even when only containing a label */ }
+.rich-list > row { padding: 8px 12px; min-height: 32px; }
 
 .rich-list > row > box { border-spacing: 12px; }
 
-/********************* App Notifications * */
 .app-notification { padding: 10px; border-spacing: 10px; border-radius: 0 0 5px 5px; background-color: rgba(53, 53, 53, 0.7); background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent 2px); background-clip: padding-box; }
 
 .app-notification border { border: none; }
 
-/************* Expanders * */
 expander { min-width: 16px; min-height: 16px; -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
 
 expander:dir(rtl) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
@@ -1298,7 +1266,6 @@ expander-widget > box > title:hover > expander { color: #748489; }
 
 .navigation-sidebar:not(decoration):not(window):drop(active):focus, .navigation-sidebar:not(decoration):not(window):drop(active), placessidebar:not(decoration):not(window):drop(active):focus, placessidebar:not(decoration):not(window):drop(active), stackswitcher:not(decoration):not(window):drop(active):focus, stackswitcher:not(decoration):not(window):drop(active), expander-widget:not(decoration):not(window):drop(active):focus, expander-widget:not(decoration):not(window):drop(active) { box-shadow: none; }
 
-/************ Calendar * */
 calendar { color: black; border: 1px solid #bfc4c4; }
 
 calendar > header { border-bottom: 1px solid #bfc4c4; }
@@ -1319,7 +1286,6 @@ calendar > grid > label.day-number:selected { border-radius: 3px; }
 
 calendar > grid > label.day-number.other-month { color: alpha(currentColor,0.3); }
 
-/*********** Dialogs * */
 window.dialog.message .titlebar { min-height: 20px; background-image: none; background-color: #e6e8e8; border-style: none; border-top-left-radius: 7px; border-top-right-radius: 7px; }
 
 window.dialog.message box.dialog-vbox.vertical { border-spacing: 10px; }
@@ -1342,7 +1308,6 @@ filechooserbutton > button > box { border-spacing: 6px; }
 
 filechooserbutton:drop(active) { box-shadow: none; border-color: transparent; }
 
-/*********** Sidebar * */
 .sidebar { background-color: #f3f4f4; }
 
 .sidebar:not(separator):dir(ltr), .sidebar.left:not(separator), .sidebar.left:not(separator):dir(rtl) { border-right: 1px solid #bfc4c4; border-left-style: none; }
@@ -1371,7 +1336,6 @@ stacksidebar row.activatable:active, stacksidebar row.activatable:selected:activ
 
 separator.sidebar { background-color: #bfc4c4; }
 
-/********************** Navigation Sidebar * */
 .navigation-sidebar { padding: 0; }
 
 .navigation-sidebar > separator { margin: 4px; }
@@ -1388,10 +1352,8 @@ separator.sidebar { background-color: #bfc4c4; }
 
 .navigation-sidebar > row:disabled { color: #8a8e8f; }
 
-/**************** File chooser * */
 row image.sidebar-icon { opacity: 0.7; }
 
-/* this should be more generic, only using .navigation-sidebar https://gitlab.gnome.org/GNOME/gtk/-/issues/2929 */
 placessidebar .navigation-sidebar > row { padding: 0; }
 
 placessidebar .navigation-sidebar > row > revealer { padding: 0 14px; }
@@ -1422,7 +1384,6 @@ placesview .server-list-button:checked > image { transition: 200ms cubic-bezier(
 
 placesview > actionbar > revealer > box > box { border-spacing: 6px; }
 
-/********* Paned * */
 paned > separator { min-width: 1px; min-height: 1px; -gtk-icon-source: none; border-style: none; background-color: transparent; background-image: image(#bfc4c4); background-size: 1px 1px; }
 
 paned > separator:selected { background-image: image(#4c73b2); }
@@ -1441,19 +1402,16 @@ paned.vertical > separator { margin: 0 0 -8px 0; padding: 0 0 8px 0; background-
 
 paned.vertical > separator.wide { margin: 0; padding: 0; background-repeat: repeat-x, repeat-x; background-position: bottom, top; }
 
-/************** GtkVideo * */
 video { background: black; }
 
 video image.osd { min-width: 64px; min-height: 64px; border-radius: 32px; }
 
-/************ Tooltips * */
 tooltip { padding: 6px 10px; border-radius: 0px; box-shadow: none; }
 
 tooltip.background { background-color: rgba(0, 0, 0, 0.8); background-clip: padding-box; border: 1px solid rgba(255, 255, 255, 0.1); color: white; }
 
 tooltip > box { border-spacing: 6px; }
 
-/***************** Color Chooser * */
 colorswatch { transition: outline-width 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), outline-offset 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
 colorswatch { outline: 0 solid transparent; outline-offset: 6px; }
@@ -1522,7 +1480,6 @@ plane:focus:focus-visible { outline-color: rgba(76, 115, 178, 0.5); outline-widt
 
 colorchooser .popover.osd { border-radius: 5px; }
 
-/******** Misc * */
 .content-view { background-color: #d3d7d7; }
 
 .content-view:hover { -gtk-icon-filter: brightness(1.2); }
@@ -1537,7 +1494,6 @@ colorchooser .popover.osd { border-radius: 5px; }
 
 .scale-popup button:hover { background-color: rgba(46, 52, 54, 0.1); border-radius: 5px; }
 
-/********************** Window Decorations * */
 window { border-width: 0px; }
 
 window.csd { box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.23); margin: 0px; border-radius: 0px 0px 0 0; }
@@ -1568,7 +1524,6 @@ label:disabled > selection, label:disabled:selected, .view:disabled:selected, te
 
 .monospace { font-family: monospace; }
 
-/********************** Touch Copy & Paste * */
 cursor-handle { background-color: transparent; background-image: none; box-shadow: none; border-style: none; }
 
 shortcuts-section { margin: 20px; }
@@ -1587,21 +1542,17 @@ stackswitcher.circular { border-spacing: 12px; }
 
 stackswitcher.circular > button.circular, stackswitcher.circular > button.text-button.circular { min-width: 32px; min-height: 32px; padding: 0; }
 
-/************* App Icons * */
-/* Outline for low res icons */
 .lowres-icon { -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.05), 1px 0 rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.3), -1px 0 rgba(0, 0, 0, 0.1); }
 
-/* Drapshadow for large icons */
 .icon-dropshadow { -gtk-icon-shadow: 0 1px 12px rgba(0, 0, 0, 0.05), 0 -1px rgba(0, 0, 0, 0.05), 1px 0 rgba(0, 0, 0, 0.1), 0 1px rgba(0, 0, 0, 0.3), -1px 0 rgba(0, 0, 0, 0.1); }
 
-/********* Emoji * */
 popover.emoji-picker > contents { padding: 0; }
 
 .emoji-searchbar { padding: 6px; border-spacing: 6px; border-bottom: 1px solid #bfc4c4; }
 
 .emoji-toolbar { padding: 6px; border-spacing: 6px; border-top: 1px solid #bfc4c4; }
 
-button.emoji-section { border-color: transparent; border-width: 3px; border-style: none none solid; border-radius: 0; padding: 3px 0 0; min-width: 32px; min-height: 28px; /* reset props inherited from the button style */ background: none; box-shadow: none; text-shadow: none; }
+button.emoji-section { border-color: transparent; border-width: 3px; border-style: none none solid; border-radius: 0; padding: 3px 0 0; min-width: 32px; min-height: 28px; background: none; box-shadow: none; text-shadow: none; }
 
 button.emoji-section:hover { border-color: #bfc4c4; }
 
