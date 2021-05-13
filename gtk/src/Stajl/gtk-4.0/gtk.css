@@ -1341,7 +1341,9 @@ separator.sidebar { background-color: #bfc4c4; }
 
 .navigation-sidebar > row:hover, .navigation-sidebar > row:backdrop:hover, .navigation-sidebar > row:focus-visible:focus-within { background-color: alpha(currentColor,0.06); }
 
-.navigation-sidebar > row:selected { background-color: #4c73b2; color: #ffffff; }
+.navigation-sidebar > row:selected { color: #ffffff; }
+
+.navigation-sidebar > row:selected, .navigation-sidebar > row:selected:backdrop:hover { background-color: #4c73b2; }
 
 .navigation-sidebar > row:selected:focus-visible:focus-within { outline-width: 0; color: #ffffff; background-color: #4c73b2; }
 
@@ -1689,13 +1691,13 @@ windowcontrols button.minimize:hover { background-image: -gtk-scaled(url("../gtk
 
 windowcontrols button.minimize:active { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-minimize-hover.png"), url("../gtk-3.0/assets/titlebutton-minimize-hover@2.png")); }
 
-.maximized windowcontrols button.titlebutton.maximize { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize.png"), url("../gtk-3.0/assets/titlebutton-unmaximize@2.png")); }
+.maximized windowcontrols button.maximize { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize.png"), url("../gtk-3.0/assets/titlebutton-unmaximize@2.png")); }
 
-.maximized windowcontrols button.titlebutton.maximize:backdrop { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-backdrop.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-backdrop@2.png")); }
+.maximized windowcontrols button.maximize:backdrop { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-backdrop.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-backdrop@2.png")); }
 
-.maximized windowcontrols button.titlebutton.maximize:hover { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
+.maximized windowcontrols button.maximize:hover { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
 
-.maximized windowcontrols button.titlebutton.maximize:active { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
+.maximized windowcontrols button.maximize:active { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
 
 switch { font-weight: bold; font-size: smaller; margin: 4px 0; padding: 0; border-radius: 99px; border-width: 0; background-color: rgba(0, 0, 0, 0.38); background-clip: padding-box; transition: all 75ms cubic-bezier(0, 0, 0.2, 1); }
 

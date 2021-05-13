@@ -3495,7 +3495,9 @@ separator.sidebar {
     }
 
     &:selected {
-      background-color: $selected_bg_color; //$menu_selected_color;
+      &, &:backdrop:hover {
+        background-color: $selected_bg_color; //$menu_selected_color;
+      }
       color: $selected_fg_color; //inherit;
 
       //&:hover {

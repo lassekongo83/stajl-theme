@@ -1329,7 +1329,9 @@ separator.sidebar { background-color: rgba(0, 0, 0, 0.4); }
 
 .navigation-sidebar > row:hover, .navigation-sidebar > row:backdrop:hover, .navigation-sidebar > row:focus-visible:focus-within { background-color: alpha(currentColor,0.06); }
 
-.navigation-sidebar > row:selected { background-color: #6699cc; color: #ffffff; }
+.navigation-sidebar > row:selected { color: #ffffff; }
+
+.navigation-sidebar > row:selected, .navigation-sidebar > row:selected:backdrop:hover { background-color: #6699cc; }
 
 .navigation-sidebar > row:selected:focus-visible:focus-within { outline-width: 0; color: #ffffff; background-color: #6699cc; }
 
@@ -1725,29 +1727,29 @@ windowcontrols button.minimize:active:not(:hover) { opacity: 0.8; }
 
 windowcontrols button.minimize:active:backdrop:not(:hover) { opacity: 0.5; }
 
-.maximized windowcontrols button.titlebutton.maximize { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
+.maximized windowcontrols button.maximize { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
 
-.maximized windowcontrols button.titlebutton.maximize:not(:hover) { opacity: 0.8; }
+.maximized windowcontrols button.maximize:not(:hover) { opacity: 0.8; }
 
-.maximized windowcontrols button.titlebutton.maximize:backdrop:not(:hover) { opacity: 0.5; }
+.maximized windowcontrols button.maximize:backdrop:not(:hover) { opacity: 0.5; }
 
-.maximized windowcontrols button.titlebutton.maximize:backdrop { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
+.maximized windowcontrols button.maximize:backdrop { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
 
-.maximized windowcontrols button.titlebutton.maximize:backdrop:not(:hover) { opacity: 0.8; }
+.maximized windowcontrols button.maximize:backdrop:not(:hover) { opacity: 0.8; }
 
-.maximized windowcontrols button.titlebutton.maximize:backdrop:backdrop:not(:hover) { opacity: 0.5; }
+.maximized windowcontrols button.maximize:backdrop:backdrop:not(:hover) { opacity: 0.5; }
 
-.maximized windowcontrols button.titlebutton.maximize:hover { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
+.maximized windowcontrols button.maximize:hover { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
 
-.maximized windowcontrols button.titlebutton.maximize:hover:not(:hover) { opacity: 0.8; }
+.maximized windowcontrols button.maximize:hover:not(:hover) { opacity: 0.8; }
 
-.maximized windowcontrols button.titlebutton.maximize:hover:backdrop:not(:hover) { opacity: 0.5; }
+.maximized windowcontrols button.maximize:hover:backdrop:not(:hover) { opacity: 0.5; }
 
-.maximized windowcontrols button.titlebutton.maximize:active { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
+.maximized windowcontrols button.maximize:active { background-image: -gtk-scaled(url("../gtk-3.0/assets/titlebutton-unmaximize-hover.png"), url("../gtk-3.0/assets/titlebutton-unmaximize-hover@2.png")); }
 
-.maximized windowcontrols button.titlebutton.maximize:active:not(:hover) { opacity: 0.8; }
+.maximized windowcontrols button.maximize:active:not(:hover) { opacity: 0.8; }
 
-.maximized windowcontrols button.titlebutton.maximize:active:backdrop:not(:hover) { opacity: 0.5; }
+.maximized windowcontrols button.maximize:active:backdrop:not(:hover) { opacity: 0.5; }
 
 switch { font-weight: bold; font-size: smaller; margin: 4px 0; padding: 0; border-radius: 99px; border-width: 0; background-color: rgba(0, 0, 0, 0.38); background-clip: padding-box; transition: all 75ms cubic-bezier(0, 0, 0.2, 1); }
 
