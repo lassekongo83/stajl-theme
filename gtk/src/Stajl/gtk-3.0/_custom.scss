@@ -4,10 +4,6 @@
 // Title buttons //
 //---------------//
 %titlebutton {
-  //min-width: 24px;
-  //min-height: 24px;
-  //padding: 0;
-  //margin: 2px;
   border-radius: 0; //1.5px;
   min-width: 38px;
   min-height: $_headerbar_height;
@@ -27,6 +23,9 @@
       border-width: 0;
       box-shadow: none;
       transition-property: background-color;
+      > image {
+        opacity: 0;
+      }
     }
 
     &.close {
